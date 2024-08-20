@@ -1,0 +1,67 @@
+.input {
+    display: relative;
+    width: 100%;
+    border: 0;
+    padding: 0.55rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: #1a202c; /* text-gray-900 */
+    border-radius: 0.175rem; /* rounded-md */
+    box-shadow: 0 0 0 1px #d1d5db; /* ring-1 ring-gray-300 */
+    background-color: #fff; /* to ensure it's visible on all backgrounds */
+    font-size: 0.875rem; /* sm:text-sm */
+    line-height: 1.25rem; /* sm:leading-6 */
+    transition: box-shadow 0.2s ease;
+    /* margin: 0.5rem 0rem; */
+}
+
+.input::placeholder {
+    color: #9ca3af; /* placeholder:text-gray-400 */
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #2c2c2c; /* focus:ring-2 focus:ring-green-500 */
+}
+
+.button {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 0.275rem;
+    padding: 0.3rem;
+    background: black;
+    color: white;
+}
+
+.page-height{
+    height: 85vh !important;
+}
+
+.authenticating_loader {
+    width: 24px;
+    display: block;
+    margin-left: 10px;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side, rgb(255, 255, 255) 90%, rgba(255, 255, 255, 0));
+    background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+    background-size: calc(100% / 3) 50%;
+    animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+    20% {
+        background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+
+    40% {
+        background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+
+    60% {
+        background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+
+    80% {
+        background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+}
