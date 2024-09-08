@@ -36,7 +36,7 @@ const features = [
 export default function Dashboard() {
     return (
         <div>
-            {/* <Banner /> */}
+            <Banner />
             <Navbar />
             <div className="overflow-hidden bg-white py-16 sm:py-16">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">

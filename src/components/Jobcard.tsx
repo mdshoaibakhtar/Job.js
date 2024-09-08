@@ -10,13 +10,14 @@ import { useMyContext } from '@/app/context/MyContext';
 import { useEffect, useState } from 'react';
 
 export default function Jobcard() {
-  const { setActiveJob, setLoadSkeleton } = useMyContext();
+  const { setActiveJob, setLoadSkeleton, setShowToast} = useMyContext();
   const [apply, setApply] = useState('');
   useEffect(() => {
     setTimeout(() => {
       if (apply !== '') {
         setApply('');
         setLoadSkeleton('all')
+        setShowToast(true)
       }
     }, 500);
   }, [apply])

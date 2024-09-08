@@ -60,3 +60,6 @@
           scrollbar-width: none;  /* Firefox */
     }
   }
+  body::-webkit-scrollbar {
+    display: none;
+}

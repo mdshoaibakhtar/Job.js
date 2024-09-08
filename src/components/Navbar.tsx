@@ -123,10 +123,10 @@ export default function Navbar() {
                                             <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" />
                                         </div>
                                         <div className="flex-auto">
-                                            <a href={item.href} className="block font-semibold text-gray-900">
+                                            <Link href={item.href} className="block font-semibold text-gray-900">
                                                 {item.name}
                                                 <span className="absolute inset-0" />
-                                            </a>
+                                            </Link>
                                             <p className="mt-1 text-gray-600">{item.description}</p>
                                         </div>
                                     </div>
@@ -135,18 +135,18 @@ export default function Navbar() {
                         </PopoverPanel>
                     </Popover>
 
-                    <a href="/playground" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href="/playground" className="text-sm font-semibold leading-6 text-gray-900">
                         Playground
-                    </a>
-                    <a href="/learning" className="text-sm font-semibold leading-6 text-gray-900">
+                    </Link>
+                    <Link href="/learning" className="text-sm font-semibold leading-6 text-gray-900">
                         Learning
-                    </a>
-                    <a href="/reviews" className="text-sm font-semibold leading-6 text-gray-900">
+                    </Link>
+                    <Link href="/reviews" className="text-sm font-semibold leading-6 text-gray-900">
                         Company Reviews
-                    </a>
-                    <a href="/hackathons" className="text-sm font-semibold leading-6 text-gray-900">
+                    </Link>
+                    <Link href="/hackathons" className="text-sm font-semibold leading-6 text-gray-900">
                         Hackathons
-                    </a>
+                    </Link>
                 </PopoverGroup>
                 {!userLoggedInDetails['loggedIn'] ?
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -240,58 +240,58 @@ export default function Navbar() {
                                         ))}
                                     </DisclosurePanel>
                                 </Disclosure>
-                                <a
+                                <Link
                                     href="/playground"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Playground
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/learning"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Learning
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/reviews"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Company Reviews
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/hackathons"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Hackathons
-                                </a>
+                                </Link>
                             </div>
                             {!userLoggedInDetails['loggedIn'] ? <div className="py-6">
-                                <a
+                                <Link
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Log in
-                                </a>
+                                </Link>
                             </div> :
                                 <div className="py-6">
-                                    <a
+                                    <Link
                                         href="#"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         Your Profile
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         href="#"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         Settings
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         href="#"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         Log Out
-                                    </a>
+                                    </Link>
                                 </div>}
                         </div>
                     </div>
