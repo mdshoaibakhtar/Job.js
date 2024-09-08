@@ -53,7 +53,7 @@ export default function Form() {
                                 name="first-name"
                                 type="text"
                                 autoComplete="given-name"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -67,7 +67,7 @@ export default function Form() {
                                 name="last-name"
                                 type="text"
                                 autoComplete="family-name"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -81,7 +81,7 @@ export default function Form() {
                                 name="company"
                                 type="text"
                                 autoComplete="organization"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -95,7 +95,7 @@ export default function Form() {
                                 name="email"
                                 type="email"
                                 autoComplete="email"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -111,7 +111,7 @@ export default function Form() {
                                 <select
                                     id="country"
                                     name="country"
-                                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                                    className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm"
                                 >
                                     <option>US</option>
                                     <option>CA</option>
@@ -127,7 +127,7 @@ export default function Form() {
                                 name="phone-number"
                                 type="tel"
                                 autoComplete="tel"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -140,7 +140,7 @@ export default function Form() {
                                 id="message"
                                 name="message"
                                 rows={4}
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BB2649] sm:text-sm sm:leading-6"
                                 defaultValue={''}
                             />
                         </div>
@@ -150,7 +150,7 @@ export default function Form() {
                             <Switch
                                 checked={agreed}
                                 onChange={setAgreed}
-                                className="group flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 data-[checked]:bg-indigo-600"
+                                className="group flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BB2649] data-[checked]:bg-[#BB2649]"
                             >
                                 <span className="sr-only">Agree to policies</span>
                                 <span
@@ -161,7 +161,7 @@ export default function Form() {
                         </div>
                         <Label className="text-sm leading-6 text-gray-600">
                             By selecting this, you agree to our{' '}
-                            <a href="#" className="font-semibold text-indigo-600">
+                            <a href="#" className="font-semibold text-[#BB2649]">
                                 privacy&nbsp;policy
                             </a>
                             .
@@ -171,7 +171,7 @@ export default function Form() {
                 <div className="mt-10">
                     <button
                         type="submit"
-                        className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="block w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BB2649]"
                     >
                         Let's talk
                     </button>

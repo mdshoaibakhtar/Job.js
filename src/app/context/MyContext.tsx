@@ -13,6 +13,8 @@ interface MyContextType {
     setLoadSkeleton: React.Dispatch<React.SetStateAction<string>>;
     userLoggedInDetails: object;
     setUserLoggedInDetails: React.Dispatch<React.SetStateAction<object>>;
+    showToast: boolean;
+    setShowToast: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Provide a default value (could be null or a default object)
@@ -22,6 +24,7 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 export function MyProvider({ children }: { children: ReactNode }) {
     const [state, setState] = useState(false);
     const [loader, setLoader] = useState(false);
+    const [showToast, setShowToast] = useState(false);
     const [activeJob, setActiveJob] = useState('iu3ju0hdiz');
     const [loadSkeleton, setLoadSkeleton] = useState('all');
     const [userLoggedInDetails, setUserLoggedInDetails] = useState({
@@ -30,7 +33,20 @@ export function MyProvider({ children }: { children: ReactNode }) {
     });
 
     return (
-        <MyContext.Provider value={{ state, setState, activeJob, setActiveJob, loadSkeleton, setLoadSkeleton, loader, setLoader, userLoggedInDetails, setUserLoggedInDetails }}>
+        <MyContext.Provider value={{ 
+            state,
+            setState, 
+            activeJob, 
+            setActiveJob, 
+            loadSkeleton, 
+            setLoadSkeleton, 
+            loader, 
+            setLoader, 
+            userLoggedInDetails, 
+            setUserLoggedInDetails,
+            showToast,
+            setShowToast
+            }}>
             {children}
         </MyContext.Provider>
     );
