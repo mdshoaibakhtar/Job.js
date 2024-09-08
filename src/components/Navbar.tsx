@@ -83,10 +83,10 @@ export default function Navbar() {
             <Modal open={open} setOpen={setOpen} />
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-0">
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img alt="" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" className="h-8 w-auto" />
-                    </a>
+                        <img alt="" src="/semicolon.png" className="h-8 w-auto" />
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -120,7 +120,7 @@ export default function Navbar() {
                                         className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                                     >
                                         <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                            <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" />
+                                            <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-[#BB2649]" />
                                         </div>
                                         <div className="flex-auto">
                                             <Link href={item.href} className="block font-semibold text-gray-900">

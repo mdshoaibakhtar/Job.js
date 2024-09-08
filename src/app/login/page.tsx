@@ -68,7 +68,7 @@ export default function Login(dialog) {
                         <button
                             type="submit"
                             disabled
-                            className="flex cursor-wait justify-center items-center w-full rounded-md bg-gray-700 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
+                            className="flex cursor-wait justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
                             Authenticating
                             <span className={styles.authenticating_loader} aria-hidden="true" />
@@ -76,7 +76,7 @@ export default function Login(dialog) {
                         <button
                             type="submit"
                             onClick={handleLogin}
-                            className="flex justify-center items-center w-full rounded-md bg-gray-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
+                            className="flex justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
                             Log in
                             <span className='ml-2' aria-hidden="true">&rarr;</span>

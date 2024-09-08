@@ -13,8 +13,7 @@ const config: Config = {
         padding: '15px'
       },
       colors: {
-        red: '#BF2200',
-        green: '#00BF3D'
+        primary : "#BB2649"
       }
     },
   },

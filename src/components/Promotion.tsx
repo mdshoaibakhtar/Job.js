@@ -45,7 +45,7 @@ export default function Promotion() {
         <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto px-6 lg:px-8">
                 <div className="mx-auto max-w-5xl lg:text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">You're Closer Than You Think</h2>
+                    <h2 className="text-base font-semibold leading-7 text-[#BB2649]">You're Closer Than You Think</h2>
                     {/* <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                         Everything you need to deploy your app
                     </p> */}
@@ -58,7 +58,7 @@ export default function Promotion() {
                         {features.map((feature) => (
                             <div key={feature.name} className="relative pl-16">
                                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-[#BB2649]">
                                         <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
                                     </div>
                                     {feature.name}
