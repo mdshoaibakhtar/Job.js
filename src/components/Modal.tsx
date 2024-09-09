@@ -5,7 +5,12 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Login from '@/app/login/page'
 
-export default function Modal({ open, setOpen }) {
+interface ModalProps {
+    open: boolean;
+    setOpen: (open: boolean) => void;
+  }
+  
+export default function Modal({ open, setOpen }: ModalProps) {
 
     return (
         <Dialog open={open} onClose={setOpen} className="relative z-10">
