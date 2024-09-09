@@ -8,10 +8,12 @@ import {
 import { company_mock_data } from '../mockdata/MockData'
 import { useMyContext } from '@/app/context/MyContext';
 import { useEffect, useState } from 'react';
+import Modal from './Modal'
 
 export default function Jobcard() {
-  const { setActiveJob, setLoadSkeleton, setShowToast} = useMyContext();
+  const { setActiveJob, setLoadSkeleton, setShowToast, userLoggedInDetails} = useMyContext();
   const [apply, setApply] = useState('');
+  const [open, setOpen] = useState(false)
   useEffect(() => {
     setTimeout(() => {
       if (apply !== '') {
@@ -21,8 +23,19 @@ export default function Jobcard() {
       }
     }, 500);
   }, [apply])
+
+  const handleJobApply = (job_id:string) =>{
+    if(userLoggedInDetails && userLoggedInDetails['loggedIn']){
+      setApply(job_id)
+      return
+    }
+    setOpen(true);
+    return
+
+  }
   return (
     <>
+      <Modal open={open} setOpen={setOpen} />
       {
         company_mock_data.map((each_company, index) => {
           return (
@@ -42,7 +55,7 @@ export default function Jobcard() {
                 <div className="mt-5 flex lg:ml-4 lg:mt-0">
                   <span className="sm:ml-3">
                     <button
-                      onClick={() => { setApply(each_company.job_id) }}
+                      onClick={() => { handleJobApply(each_company.job_id) }}
                       type="button"
                       disabled={apply === each_company.job_id}
                       className={apply === each_company.job_id ? "inline-flex items-center rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm" : "inline-flex items-center rounded-md bg-[#BB2649] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BB2649]"}

@@ -77,7 +77,7 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [open, setOpen] = useState(false)
     const { userLoggedInDetails } = useMyContext();
-
+    
     return (
         <header className="bg-white">
             <Modal open={open} setOpen={setOpen} />
@@ -148,7 +148,7 @@ export default function Navbar() {
                         Hackathons
                     </Link>
                 </PopoverGroup>
-                {!userLoggedInDetails['loggedIn'] ?
+                {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ?
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-gray-900">
                             Log in <span aria-hidden="true">&rarr;</span>
@@ -265,7 +265,7 @@ export default function Navbar() {
                                     Hackathons
                                 </Link>
                             </div>
-                            {!userLoggedInDetails['loggedIn'] ? <div className="py-6">
+                            {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ? <div className="py-6">
                                 <Link
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
