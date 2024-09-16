@@ -15,13 +15,34 @@ export default function JobCardSkelton() {
                         <div className="h-10 bg-slate-200 rounded" />
                     </div>
                 </div>
-                <div className="animate-pulse mt-4 space-y-4">
+                <div className="animate-pulse mt-4 space-y-4 hidden lg:block xl:block">
                     <div className="flex justify-between w-full">
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex space-x-2 w-full">
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                    </div>
+                </div>
+                {/* Not working to hide on desktop */}
+                <div className="animate-pulse mt-4 space-y-4 lg:hidden xl:hidden 2xl:hidden"> 
+                    <div className="flex justify-between w-full block">
+                        <div className="h-8 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex space-x-2 w-full">
@@ -46,13 +67,34 @@ export default function JobCardSkelton() {
                         <div className="h-10 bg-slate-200 rounded" />
                     </div>
                 </div>
-                <div className="animate-pulse mt-4 space-y-4">
+                <div className="animate-pulse mt-4 space-y-4 hidden lg:block xl:block">
                     <div className="flex justify-between w-full">
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex space-x-2 w-full">
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                    </div>
+                </div>
+                {/* Not working to hide on desktop */}
+                <div className="animate-pulse mt-4 space-y-4 lg:hidden xl:hidden 2xl:hidden"> 
+                    <div className="flex justify-between w-full block">
+                        <div className="h-8 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex space-x-2 w-full">
@@ -77,13 +119,34 @@ export default function JobCardSkelton() {
                         <div className="h-10 bg-slate-200 rounded" />
                     </div>
                 </div>
-                <div className="animate-pulse mt-4 space-y-4">
+                <div className="animate-pulse mt-4 space-y-4 hidden lg:block xl:block">
                     <div className="flex justify-between w-full">
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex space-x-2 w-full">
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                    </div>
+                </div>
+                {/* Not working to hide on desktop */}
+                <div className="animate-pulse mt-4 space-y-4 lg:hidden xl:hidden 2xl:hidden"> 
+                    <div className="flex justify-between w-full block">
+                        <div className="h-8 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex space-x-2 w-full">
@@ -108,13 +171,34 @@ export default function JobCardSkelton() {
                         <div className="h-10 bg-slate-200 rounded" />
                     </div>
                 </div>
-                <div className="animate-pulse mt-4 space-y-4">
+                <div className="animate-pulse mt-4 space-y-4 hidden lg:block xl:block">
                     <div className="flex justify-between w-full">
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex space-x-2 w-full">
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                        <div className="h-6 w-14 bg-slate-200 rounded" />
+                    </div>
+                </div>
+                {/* Not working to hide on desktop */}
+                <div className="animate-pulse mt-4 space-y-4 lg:hidden xl:hidden 2xl:hidden"> 
+                    <div className="flex justify-between w-full block">
+                        <div className="h-8 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div>
+                    <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
                     <div className="flex space-x-2 w-full">

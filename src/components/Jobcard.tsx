@@ -41,7 +41,7 @@ export default function Jobcard() {
           return (
             <div key={index} className="lg:flex flex-col lg:items-center lg:justify-between mb-4 border-2 rounded border-solid border-slate-50 px-8 py-6 cursor-pointer transform transition shadow-md duration-7000 hover:rounded hover:border-slate-200">
               <div className="lg:flex w-full lg:justify-between">
-                <div className="lg:flex w-full" onClick={() => { setActiveJob(each_company.job_id), setLoadSkeleton('details') }}>
+                <div className="flex w-full" onClick={() => { setActiveJob(each_company.job_id), setLoadSkeleton('details') }}>
                   <img className="inline-block h-10 w-10 rounded ring-2 ring-white" src={each_company.logo} alt="" />
                   <div className="flex flex-col ml-3">
                     <h2 className="text-lg font-semibold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
@@ -71,24 +71,48 @@ export default function Jobcard() {
                 </div>
               </div>
               <div onClick={() => { setActiveJob(each_company.job_id), setLoadSkeleton('details') }} className="w-full justify-between">
-                <div className="mt-2 flex flex-col sm:mt-2 sm:flex-row sm:flex-wrap sm:space-x-6 w-full justify-between">
-                  <div className="mt-2 flex items-center text-sm text-gray-500">
-                    <BriefcaseIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
-                    {each_company.job_type}
+                <div className='flex sm:block md:block lg:hidden xl:hidden'>
+                  <div className="mt-2 flex flex-col sm:mt-2 sm:flex-row sm:flex-wrap sm:space-x-6 w-full justify-between">
+                    <div className="mt-2 flex items-center text-sm text-gray-500">
+                      <BriefcaseIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.job_type}
+                    </div>
+                    <div className="mt-2 flex items-center text-sm text-gray-500 capitalize">
+                      <MapPinIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.work_mode}
+                    </div>
                   </div>
-                  <div className="mt-2 flex items-center text-sm text-gray-500 capitalize">
-                    <MapPinIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
-                    {each_company.work_mode}
-                  </div>
-                  <div className="mt-2 flex items-center text-sm text-gray-500">
-                    <CurrencyDollarIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
-                    {each_company.job_offer}
+                  <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                    <div className="mt-2 flex text-sm text-gray-500">
+                      <ClockIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.days_left} days left
+                    </div>
+                    <div className="mt-2 flex items-center text-sm text-gray-500">
+                      <CurrencyDollarIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.job_offer}
+                    </div>
                   </div>
                 </div>
-                <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
-                  <div className="mt-2 flex text-sm text-gray-500">
-                    <ClockIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
-                    {each_company.days_left} days left
+                <div className='hidden sm:hidden md:hidden lg:block xl:block'>
+                  <div className="mt-2 flex flex-col sm:mt-2 sm:flex-row sm:flex-wrap sm:space-x-6 w-full justify-between">
+                    <div className="mt-2 flex items-center text-sm text-gray-500">
+                      <BriefcaseIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.job_type}
+                    </div>
+                    <div className="mt-2 flex items-center text-sm text-gray-500 capitalize">
+                      <MapPinIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.work_mode}
+                    </div>
+                    <div className="mt-2 flex items-center text-sm text-gray-500">
+                      <CurrencyDollarIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.job_offer}
+                    </div>
+                  </div>
+                  <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                    <div className="mt-2 flex text-sm text-gray-500">
+                      <ClockIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                      {each_company.days_left} days left
+                    </div>
                   </div>
                 </div>
                 <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
