@@ -77,7 +77,7 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [open, setOpen] = useState(false)
     const { userLoggedInDetails } = useMyContext();
-    
+
     return (
         <header className="bg-white">
             <Modal open={open} setOpen={setOpen} />
@@ -179,7 +179,7 @@ export default function Navbar() {
                                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                             >
                                 <MenuItem>
-                                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                                    <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                                         Your Profile
                                     </Link>
                                 </MenuItem>
@@ -205,7 +205,7 @@ export default function Navbar() {
                             <span className="sr-only">Your Company</span>
                             <img
                                 alt=""
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                src="/semicolon.png"
                                 className="h-8 w-auto"
                             />
                         </a>
@@ -275,7 +275,7 @@ export default function Navbar() {
                             </div> :
                                 <div className="py-6">
                                     <Link
-                                        href="#"
+                                        href="/profile"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         Your Profile

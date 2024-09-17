@@ -11,8 +11,14 @@ interface MyContextType {
     setActiveJob: React.Dispatch<React.SetStateAction<string>>;
     loadSkeleton: string;
     setLoadSkeleton: React.Dispatch<React.SetStateAction<string>>;
-    userLoggedInDetails: object;
-    setUserLoggedInDetails: React.Dispatch<React.SetStateAction<object>>;
+    userLoggedInDetails: {
+        loggedIn: boolean,
+        email:string
+    };
+    setUserLoggedInDetails: React.Dispatch<React.SetStateAction<{
+    loggedIn: boolean,
+    email:string
+}>>;
     showToast: boolean;
     setShowToast: React.Dispatch<React.SetStateAction<boolean>>;
 }
