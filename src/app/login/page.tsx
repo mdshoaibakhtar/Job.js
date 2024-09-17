@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function Login(dialog:{dialog:boolean}) {
+export default function Login(dialog:{dialog:false}) {
     const { setLoader } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
