@@ -6,7 +6,17 @@ import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function Login(dialog:{dialog:false}) {
+// Define the DialogConfig interface
+interface DialogConfig {
+    dialog: boolean;
+}
+
+// Define the LoginProps interface
+interface LoginProps {
+    dialog: DialogConfig;
+}
+
+export default function Login({ dialog }: LoginProps) {
     const { setLoader } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
@@ -21,7 +31,7 @@ export default function Login(dialog:{dialog:false}) {
 
     return (
         <div className="w-full flex justify-center flex-col items-center h-[90vh]">
-            <div className={dialog['dialog'] ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md: w-11/12 lg: w-11/12"}>
+            <div className={dialog && dialog['dialog'] ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md: w-11/12 lg: w-11/12"}>
                 <div className="relative rounded-md shadow-sm w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
