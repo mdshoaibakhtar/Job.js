@@ -1,8 +1,8 @@
-'use client'
+'use client';
+
 import Link from 'next/link';
 import { useMyContext } from '../context/MyContext';
 import styles from '../Custom.module.css';
-import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -16,6 +16,7 @@ interface LoginProps {
     dialog: DialogConfig;
 }
 
+// Correctly type the functional component with props
 export default function Login({ dialog }: LoginProps) {
     const { setLoader } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
@@ -31,7 +32,7 @@ export default function Login({ dialog }: LoginProps) {
 
     return (
         <div className="w-full flex justify-center flex-col items-center h-[90vh]">
-            <div className={dialog && dialog['dialog'] ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md: w-11/12 lg: w-11/12"}>
+            <div className={dialog.dialog ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md:w-11/12 lg:w-11/12"}>
                 <div className="relative rounded-md shadow-sm w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
@@ -61,7 +62,6 @@ export default function Login({ dialog }: LoginProps) {
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                                 <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clipRule="evenodd" />
                             </svg>
-
                         </span>
                     </div>
                     <input
@@ -91,7 +91,6 @@ export default function Login({ dialog }: LoginProps) {
                             Log in
                             <span className='ml-2' aria-hidden="true">&rarr;</span>
                         </button>}
-
                 </div>
                 <div className="w-full sm:w-full px-4 md:w-full mt-6 text-center flex-col sm:flex-col md:flex-row flex justify-between">
                     <Link href='/' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
@@ -99,5 +98,5 @@ export default function Login({ dialog }: LoginProps) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
