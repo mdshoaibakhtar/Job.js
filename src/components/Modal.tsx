@@ -50,7 +50,7 @@ export default function Modal({ open, setOpen }: ModalProps) {
                                 </div>
                             </div>
                         </div> */}
-                        <Login dialog={true} />
+                        {/* <Login dialog={true} /> */}
                         {/* <div className="bg-slate-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                             <button
                                 type="button"
