@@ -18,7 +18,7 @@ export default function Login() {
     };
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh]">
-            <div className="flex justify-center flex-col items-center md:p-4 sm:w-4/12 md: w-11/12 lg: w-11/12">
+            <div className="flex justify-center flex-col items-center md:p-4 sm:w-5/12 md: w-11/12 lg: w-11/12">
                 <div className="relative rounded-md shadow-sm w-full px-2">
                     <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
                         Name

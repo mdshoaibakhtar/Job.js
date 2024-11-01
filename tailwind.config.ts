@@ -13,10 +13,13 @@ const config: Config = {
         padding: '15px'
       },
       colors: {
-        primary : "#BB2649"
+        primary: "#BB2649"
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')({
+      charts: true,
+    })],
 };
 export default config;

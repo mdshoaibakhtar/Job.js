@@ -32,7 +32,8 @@ export default function Login() {
 
     return (
         <div className="w-full flex justify-center flex-col items-center h-[90vh]">
-            <div className={false ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md:w-11/12 lg:w-11/12"}>
+            {/* <div className={false ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md:w-11/12 lg:w-11/12"}> */}
+            <div className={"w-11/12 sm:w-5/12 md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4"}>
                 <div className="relative rounded-md shadow-sm w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
