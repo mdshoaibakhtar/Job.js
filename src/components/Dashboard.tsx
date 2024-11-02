@@ -92,7 +92,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <Chart />
+            {/* <Chart /> */}
             <Promotion />
             {/* <Pricing /> */}
             {/* <Jobcard /> */}
