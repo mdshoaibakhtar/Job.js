@@ -20,10 +20,11 @@ export default function JobDetailsSkeleton() {
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                         <div className="h-4 w-28 bg-slate-200 rounded" />
-                    </div>
-                    <div className="flex justify-between w-full">
                         <div className="h-4 w-28 bg-slate-200 rounded" />
                     </div>
+                    {/* <div className="flex justify-between w-full">
+                        <div className="h-4 w-28 bg-slate-200 rounded" />
+                    </div> */}
                     <div className="flex space-x-2 w-full">
                         <div className="h-6 w-14 bg-slate-200 rounded" />
                         <div className="h-6 w-14 bg-slate-200 rounded" />

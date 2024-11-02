@@ -52,7 +52,7 @@ export default function JobDetails() {
                                     </span>
                                 </div>
                             </div>
-                            <div className="mt-2 flex flex-col sm:mt-2 sm:flex-row sm:flex-wrap sm:space-x-6 w-full justify-between">
+                            <div className="mt-2 mb-2 flex flex-col sm:mt-2 sm:flex-row sm:flex-wrap sm:space-x-6 w-full justify-between">
                                 <div className="mt-2 flex items-center text-sm text-gray-500">
                                     <BriefcaseIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
                                     {each_company_data.job_type}
@@ -65,13 +65,17 @@ export default function JobDetails() {
                                     <CurrencyDollarIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
                                     {each_company_data.job_offer}
                                 </div>
-                            </div>
-                            <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                                 <div className="mt-2 flex text-sm text-gray-500">
                                     <ClockIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
                                     {each_company_data.days_left} days left
                                 </div>
                             </div>
+                            {/* <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                                <div className="mt-2 flex text-sm text-gray-500">
+                                    <ClockIcon aria-hidden="true" className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                                    {each_company_data.days_left} days left
+                                </div>
+                            </div> */}
                             <div className="w-full mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                                 <div className="mt-2 flex text-sm text-gray-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 mr-1">
