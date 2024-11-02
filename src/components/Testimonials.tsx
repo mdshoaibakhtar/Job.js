@@ -166,7 +166,7 @@ export default function Testimonials() {
                                     <div
                                         className="relative p-6 space-y-6 leading-none rounded-lg bg-slate-100 ring-1 ring-gray-900/5">
                                         <div className="flex items-center space-x-4"><img
-                                            src="https://media.licdn.com/dms/image/v2/D4D03AQFbm-tesgp4aQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727965300716?e=2147483647&v=beta&t=258wKTq9GIqPe76DwGwq1bqP8C1y_VIiT-uD5bW7Uag"
+                                            src="https://media.licdn.com/dms/image/D4D03AQEeuKeLs8tp9Q/profile-displayphoto-shrink_200_200/0/1721448960096?e=2147483647&v=beta&t=JmXAf0DDAozycFYnJ0LL-Bq2YTD3oIXITyDAmJtF59w"
                                             className="w-12 h-12 bg-center bg-cover border rounded-full" alt="Satya Nadella"/>
                                             <div>
                                                 <h3 className="text-lg font-semibold text-gray-800">Md Shoaib Akhtar</h3>
@@ -208,7 +208,7 @@ export default function Testimonials() {
                                     <div
                                         className="relative p-6 space-y-6 leading-none rounded-lg bg-slate-100 ring-1 ring-gray-900/5">
                                         <div className="flex items-center space-x-4"><img
-                                            src="https://media.licdn.com/dms/image/v2/D5603AQHXQErad4hj2Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1675267861602?e=2147483647&v=beta&t=YbNkCOJotfQwcJKBNdk9B7y6dKnJxsGiSq2mO2YWP7U"
+                                            src="https://media.licdn.com/dms/image/D4D03AQEjaVJjMl6K2Q/profile-displayphoto-shrink_200_200/0/1718261048480?e=2147483647&v=beta&t=Q82xC_Vn3x7xZanx6t_o3j9ve2aKR7RUUYkhu9eJ3eI"
                                             className="w-12 h-12 bg-center bg-cover border rounded-full" alt="Dan Schulman"/>
                                             <div>
                                                 <h3 className="text-lg font-semibold text-gray-800">Hamza Ali</h3>
