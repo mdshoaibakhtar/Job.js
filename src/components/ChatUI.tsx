@@ -1,13 +1,5 @@
 import React from 'react';
 
-const messages = [
-    { id: 1, text: 'Hey there!', sender: 'me', time: '10:00 AM' },
-    { id: 2, text: 'Hello! How are you?', sender: 'them', time: '10:01 AM' },
-    { id: 3, text: 'I’m doing well, thanks!', sender: 'me', time: '10:02 AM' },
-    { id: 4, text: 'What about you?', sender: 'them', time: '10:03 AM' },
-    { id: 5, text: 'Can’t complain!', sender: 'me', time: '10:04 AM' },
-];
-
 const ChatUI = () => {
     return (
         <div className="text-gray-500 text-[14px]">
