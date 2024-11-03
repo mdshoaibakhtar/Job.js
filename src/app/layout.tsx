@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Loader from '../components/Loader';
 import { MyProvider } from './context/MyContext'; // Import your provider
+import Webchat from "@/components/Webchat";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <MyProvider>
           <Loader />
+          <Webchat />
           {children}
         </MyProvider>
       </body>
