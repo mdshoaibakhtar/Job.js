@@ -10,7 +10,7 @@ const Webchat = () => {
     return (
         <div className="fixed z-50">
             {openChat ?
-                <div className="fixed sm:bottom-8 sm:right-8 bg-[#BB2649] w-screen h-screen sm:w-[24rem] sm:h-[30rem] px-4 py-4 sm:rounded-xl flex justify-between flex-col">
+                <div className="fixed sm:bottom-8 sm:right-8 bg-[#BB2649] w-screen h-full sm:w-[24rem] sm:h-[30rem] px-4 py-4 sm:rounded-xl flex justify-between flex-col">
                     <div>
                         <div className="flex text-white justify-between pb-2 mb-2 border-b-2 border-gray-200">
                             <div className='flex'>
