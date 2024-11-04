@@ -9,11 +9,12 @@ import { company_mock_data } from '../mockdata/MockData'
 import { useMyContext } from '@/app/context/MyContext';
 import { useEffect, useState } from 'react';
 import Modal from './Modal'
+import Login from '@/app/login/page';
 
 export default function Jobcard() {
-  const { setActiveJob, setLoadSkeleton, setShowToast, userLoggedInDetails} = useMyContext();
+  const { setActiveJob, setLoadSkeleton, setShowToast, userLoggedInDetails } = useMyContext();
   const [apply, setApply] = useState('');
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       if (apply !== '') {
@@ -24,8 +25,8 @@ export default function Jobcard() {
     }, 500);
   }, [apply])
 
-  const handleJobApply = (job_id:string) =>{
-    if(userLoggedInDetails && userLoggedInDetails['loggedIn']){
+  const handleJobApply = (job_id: string) => {
+    if (userLoggedInDetails && userLoggedInDetails['loggedIn']) {
       setApply(job_id)
       return
     }
@@ -34,8 +35,7 @@ export default function Jobcard() {
 
   }
   return (
-    <>
-      <Modal open={open} setOpen={setOpen} />
+    <div>
       {
         company_mock_data.map((each_company, index) => {
           return (
@@ -134,6 +134,15 @@ export default function Jobcard() {
           )
         })
       }
-    </>
+      <Modal
+        open={open}
+        setOpen={setOpen}
+        title="Login"
+        subtitle=""
+        width="sm:w-2/5 w-full"
+      >
+        <Login dialog={true} setOpen={ setOpen} />
+      </Modal>
+    </div>
   )
 }

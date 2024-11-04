@@ -75,12 +75,10 @@ const callsToAction = [
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [open, setOpen] = useState(false)
     const { userLoggedInDetails } = useMyContext();
 
     return (
         <header className="bg-white">
-            <Modal open={open} setOpen={setOpen} />
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-0">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
@@ -150,8 +148,8 @@ export default function Navbar() {
                 </PopoverGroup>
                 {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ?
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <button onClick={() => setOpen(true)} className="text-sm font-semibold leading-6 text-gray-900">
-                            Log in <span aria-hidden="true">&rarr;</span>
+                        <button onClick={() => console.log('Login page')} className="text-sm font-semibold leading-6 text-gray-900">
+                            <Link href='/login' className='text-sm'>Log in</Link> <span aria-hidden="true">&rarr;</span>
                         </button>
                     </div> :
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

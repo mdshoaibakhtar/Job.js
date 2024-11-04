@@ -1,69 +1,63 @@
-'use client'
-
-import { useState } from 'react'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import Login from '@/app/login/page'
+import React, { forwardRef } from 'react';
+import { Dialog, DialogPanel, DialogTitle, DialogBackdrop, Transition } from '@headlessui/react';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 interface ModalProps {
     open: boolean;
     setOpen: (open: boolean) => void;
-  }
-  
-export default function Modal({ open, setOpen }: ModalProps) {
-
-    return (
-        <Dialog open={open} onClose={setOpen} className="relative z-10">
-            <DialogBackdrop
-                transition
-                className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
-            />
-
-            <div className="fixed inset-0 z-10 w-full overflow-y-auto">
-                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                    <DialogPanel
-                        transition
-                        className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-3xl data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
-                    >
-                        <div className="px-4 sm:flex sm:flex-row-reverse sm:px-6">
-                            <div className='cursor-pointer mt-4' onClick={() => setOpen(false)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
-                        </div>
-                        </div>
-                        {/* <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                            <div className="sm:flex sm:items-start">
-                                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                                    <ExclamationTriangleIcon aria-hidden="true" className="h-6 w-6 text-red-600" />
-                                </div>
-                                <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                    <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                                        Deactivate account
-                                    </DialogTitle>
-                                    <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
-                                            Are you sure you want to deactivate your account? All of your data will be permanently removed.
-                                            This action cannot be undone.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
-                        {/* <Login dialog={true} /> */}
-                        {/* <div className="bg-slate-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button
-                                type="button"
-                                data-autofocus
-                                onClick={() => setOpen(false)}
-                                className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            >
-                                Close
-                            </button>
-                        </div> */}
-                    </DialogPanel>
-                </div>
-            </div>
-        </Dialog>
-    )
+    title: string;
+    subtitle?: string;
+    width?: string; // Use Tailwind width classes like 'sm:max-w-lg'
+    height?: string; // Use Tailwind height classes like 'h-full'
+    children?: React.ReactNode;
 }
+
+const Modal = forwardRef<HTMLDivElement, ModalProps>(({ open, setOpen, title, subtitle, width = 'sm:max-w-lg', height = 'h-auto', children }, ref) => {
+    return (
+        <Transition appear show={open} as={React.Fragment}>
+            <Dialog as="div" onClose={() => setOpen(false)} className="relative z-10">
+                <DialogBackdrop className="fixed inset-0 bg-gray-500 bg-opacity-75" />
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="transition ease-out duration-300"
+                    enterFrom="opacity-0 translate-y-[-100%]"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-200"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-[-100%]"
+                >
+                    <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                        <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-center sm:p-0">
+                            <DialogPanel
+                                ref={ref}
+                                className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ${width} ${height}`}
+                            >
+                                <div className="flex justify-between items-center p-4">
+                                    <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                                        {title}
+                                    </DialogTitle>
+                                    <button
+                                        onClick={() => setOpen(false)}
+                                        className="text-gray-400 hover:text-gray-600 focus:outline-none"
+                                    >
+                                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                    </button>
+                                </div>
+                                {subtitle && (
+                                    <div className="px-4 pb-4">
+                                        <p className="text-sm text-gray-500">{subtitle}</p>
+                                    </div>
+                                )}
+                                <div className="sm:px-4 sm:pb-4 sm:p-6 sm:pb-4 border-t-2 border-inherit">
+                                    {children}
+                                </div>
+                            </DialogPanel>
+                        </div>
+                    </div>
+                </Transition.Child>
+            </Dialog>
+        </Transition>
+    );
+});
+
+export default Modal;

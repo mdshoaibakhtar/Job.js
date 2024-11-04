@@ -4,36 +4,36 @@ import Link from 'next/link';
 import { useMyContext } from '../context/MyContext';
 import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-// Define the DialogConfig interface
-interface DialogConfig {
-    dialog: boolean;
-}
-
-// Define the LoginProps interface
 interface LoginProps {
-    dialog: DialogConfig;
+    dialog: boolean;
+    setOpen: (value:boolean) => void 
 }
 
 // Correctly type the functional component with props
-export default function Login() {
+const Login: React.FC<LoginProps> = ({ dialog, setOpen}) =>{
     const { setLoader } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
     const handleLogin = () => {
         setAuthenticating(true);
-        setTimeout(() => {
-            router.push('/');
-            setAuthenticating(false);
-        }, 800);
+        if (!dialog) {
+            setTimeout(() => {
+                router.push('/');
+                setAuthenticating(false);
+            }, 800);
+        } else {
+            setTimeout(() => {
+                setOpen(false)
+            }, 800);
+        }
     };
 
     return (
-        <div className="w-full flex justify-center flex-col items-center h-[90vh]">
-            {/* <div className={false ? "w-8/12 flex justify-center flex-col items-center p-4" : "flex justify-center flex-col items-center md:p-4 sm:w-4/12 md:w-11/12 lg:w-11/12"}> */}
-            <div className={"w-11/12 sm:w-5/12 md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4"}>
+        <div className={`w-full flex justify-center flex-col items-center h-${dialog ? '0':'[90vh]'}`}>
+            <div className={`w-full sm:${dialog ? 'w-full' : 'w-5/12'} md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4`}>
                 <div className="relative rounded-md shadow-sm w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
@@ -93,11 +93,13 @@ export default function Login() {
                             <span className='ml-2' aria-hidden="true">&rarr;</span>
                         </button>}
                 </div>
-                <div className="w-full sm:w-full px-4 md:w-full mt-6 text-center flex-col sm:flex-col md:flex-row flex justify-between">
-                    <Link href='/' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
-                    <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm'>Create new account</Link></p>
+                <div className={`w-full sm:w-full flex px-2 md:w-full mt-6 text-center flex-col sm:${dialog ? 'flex-row' : 'flex-row'} justify-between`}>
+                    <Link href='/forgot' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
+                    <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm' target='_blank'>Create new account</Link></p>
                 </div>
             </div>
         </div>
     );
 }
+
+export default Login
