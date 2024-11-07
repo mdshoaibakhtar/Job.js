@@ -1,23 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { useMyContext } from '../context/MyContext';
-import styles from '../Custom.module.css';
+import { useMyContext } from '../app/context/MyContext';
+import styles from '../app/Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
-const Login = () =>{
+interface LoginProps {
+    dialog: boolean;
+    setOpen: (value: boolean) => void
+}
+
+// Correctly type the functional component with props
+const LoginComponent: React.FC<LoginProps> = ({ dialog, setOpen }) => {
     const { setLoader } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
     const handleLogin = () => {
         setAuthenticating(true);
+        if (!dialog) {
+            setTimeout(() => {
+                router.push('/');
+                setAuthenticating(false);
+            }, 800);
+        } else {
+            setTimeout(() => {
+                setOpen(false)
+            }, 800);
+        }
     };
 
     return (
-        <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
-            <div className={`w-full sm:w-5/12 md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4`}>
+        <div className={`w-full flex justify-center flex-col items-center h-${dialog ? '0' : '[90vh]'}`}>
+            <div className={`w-full sm:${dialog ? 'w-full' : 'w-5/12'} md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4`}>
                 <div className="relative rounded-md shadow-sm w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
@@ -77,7 +93,7 @@ const Login = () =>{
                             <span className='ml-2' aria-hidden="true">&rarr;</span>
                         </button>}
                 </div>
-                <div className={`w-full sm:w-full flex px-2 md:w-full mt-6 text-center flex-col sm: flex-row justify-between`}>
+                <div className={`w-full sm:w-full flex px-2 md:w-full mt-6 text-center flex-col sm:${dialog ? 'flex-row' : 'flex-row'} justify-between`}>
                     <Link href='/forgot' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
                     <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm' target='_blank'>Create new account</Link></p>
                 </div>
@@ -86,4 +102,4 @@ const Login = () =>{
     );
 }
 
-export default Login
+export default LoginComponent

@@ -9,7 +9,7 @@ import { company_mock_data } from '../mockdata/MockData'
 import { useMyContext } from '@/app/context/MyContext';
 import { useEffect, useState } from 'react';
 import Modal from './Modal'
-import Login from '@/app/login/page';
+import LoginComponent from './LoginComponent';
 
 export default function Jobcard() {
   const { setActiveJob, setLoadSkeleton, setShowToast, userLoggedInDetails } = useMyContext();
@@ -141,7 +141,7 @@ export default function Jobcard() {
         subtitle=""
         width="sm:w-2/5 w-full"
       >
-        <Login dialog={true} setOpen={ setOpen} />
+        <LoginComponent dialog={true} setOpen={ setOpen} />
       </Modal>
     </div>
   )
