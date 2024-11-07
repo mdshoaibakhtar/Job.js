@@ -5,7 +5,7 @@ import styles from '../Custom.module.css';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 
-export default function Login() {
+export default function SignUp() {
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 

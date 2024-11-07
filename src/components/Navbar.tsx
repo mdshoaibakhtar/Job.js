@@ -149,7 +149,7 @@ export default function Navbar() {
                 {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ?
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <button onClick={() => console.log('Login page')} className="text-sm font-semibold leading-6 text-gray-900">
-                            <Link href='/login' className='text-sm'>Log in</Link> <span aria-hidden="true">&rarr;</span>
+                            <Link href='/login' className='text-sm' target='_blank'>Log in</Link> <span aria-hidden="true">&rarr;</span>
                         </button>
                     </div> :
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
