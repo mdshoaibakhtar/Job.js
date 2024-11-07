@@ -77,7 +77,7 @@ const Login = () =>{
                             <span className='ml-2' aria-hidden="true">&rarr;</span>
                         </button>}
                 </div>
-                <div className={`w-full sm:w-full flex px-2 md:w-full mt-6 text-center flex-col sm: flex-row justify-between`}>
+                <div className="w-full sm:w-full flex px-2 md:w-full mt-6 text-center sm:flex-row flex-col justify-between">
                     <Link href='/forgot' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
                     <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm' target='_blank'>Create new account</Link></p>
                 </div>

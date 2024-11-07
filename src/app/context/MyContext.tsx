@@ -34,7 +34,7 @@ export function MyProvider({ children }: { children: ReactNode }) {
     const [activeJob, setActiveJob] = useState('iu3ju0hdiz');
     const [loadSkeleton, setLoadSkeleton] = useState('all');
     const [userLoggedInDetails, setUserLoggedInDetails] = useState({
-        loggedIn: true,
+        loggedIn: false,
         email: 'test@gmail.com'
     });
 
