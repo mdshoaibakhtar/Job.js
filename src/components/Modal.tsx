@@ -30,7 +30,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(({ open, setOpen, title, su
                         <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-center sm:p-0">
                             <DialogPanel
                                 ref={ref}
-                                className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ${width} ${height}`}
+                                className={`relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all my-auto ${width} ${height}`}
                             >
                                 <div className="flex justify-between items-center p-4">
                                     <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
