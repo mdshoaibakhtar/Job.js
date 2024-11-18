@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from '../Custom.module.css';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
+import SelectorInput from '@/components/SelectorInput';
 
 export default function SignUp() {
     const [authenticating, setAuthenticating] = useState(false);
@@ -117,6 +118,9 @@ export default function SignUp() {
                         type="password"
                         className={styles.input}
                     />
+                </div>
+                <div className='w-full px-2 mt-4'>
+                    <SelectorInput/>
                 </div>
 
                 <div className="w-8/12 mt-6 flex items-center mb-2 w-full px-2">
