@@ -13,6 +13,7 @@ const Login = () =>{
 
     const handleLogin = () => {
         setAuthenticating(true);
+        // setLoader(true)
     };
 
     return (

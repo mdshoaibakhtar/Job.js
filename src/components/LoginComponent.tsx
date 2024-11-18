@@ -13,7 +13,7 @@ interface LoginProps {
 
 // Correctly type the functional component with props
 const LoginComponent: React.FC<LoginProps> = ({ dialog, setOpen }) => {
-    const { setLoader } = useMyContext();
+    const { setLoader, setLoadSkeleton } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
@@ -27,6 +27,7 @@ const LoginComponent: React.FC<LoginProps> = ({ dialog, setOpen }) => {
         } else {
             setTimeout(() => {
                 setOpen(false)
+                setLoadSkeleton('all')
             }, 800);
         }
     };

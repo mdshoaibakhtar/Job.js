@@ -1,3 +1,4 @@
+import EditableForm from '@/components/EditableForm'
 import Navbar from '@/components/Navbar'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
@@ -9,36 +10,51 @@ export default function Profile() {
         <div className="px-4 sm:px-0">
           <h3 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h3>
         </div>
+        
         <div className="mt-6">
           <dl className="divide-y divide-gray-100">
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Full name</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Md Shoaib Akhtar</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">About</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Hi I'm Md Shoaib Akhtar ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">mdshoaibakhtar@example.com</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Date of birth</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">08 Feb 2002</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Contact number</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">+91 9905109322</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Permanent address</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Thana road, Sultanganj, Bihar - 813213</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Current address</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Elite tower, Sector V, Kolkata - 710009</dd>
-            </div>
+            <EditableForm
+              title="Full name"
+              defaultValue="Md Shoaib Akhtar"
+              resize={false}
+              rows={1}
+            />
+            <EditableForm
+              title="About"
+              defaultValue="Hi I'm Md Shoaib Akhtar ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu. Hi I'm Md Shoaib Akhtar ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu."
+              resize={true}
+              rows={8} 
+            />
+            <EditableForm
+              title="Email address"
+              defaultValue="mdshoaibakhtar@example.com"
+              resize={false}
+              rows={1} 
+            />
+            <EditableForm
+              title="Date of birth"
+              defaultValue="08 Feb 2002"
+              resize={false}
+              rows={1}
+            />
+            <EditableForm
+              title="Contact number"
+              defaultValue="+91 9905109322"
+              resize={false}
+              rows={1}
+            />
+            <EditableForm
+              title="Permanent address"
+              defaultValue="Thana road, Sultanganj, Bihar - 813213"
+              resize={false}
+              rows={1}
+            />
+            <EditableForm
+              title="Current address"
+              defaultValue="Elite tower, Sector V, Kolkata - 710009"
+              resize={false}
+              rows={1}
+            />
           </dl>
         </div>
         <div className="px-4 sm:px-0 mt-6">
