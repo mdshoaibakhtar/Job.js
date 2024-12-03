@@ -28,6 +28,8 @@ import { ChevronDownIcon, ChevronUpIcon, PhoneIcon, PlayCircleIcon } from '@hero
 import Link from 'next/link'
 import Modal from './Modal'
 import { useMyContext } from '@/app/context/MyContext'
+import { clearCookie } from '@/utils/CookiesManagement'
+import { useRouter } from 'next/navigation';
 
 const products = [
     {
@@ -76,6 +78,12 @@ const callsToAction = [
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const { userLoggedInDetails } = useMyContext();
+    const router = useRouter();
+
+    const handleLogout = () => {
+        clearCookie('useremail')
+        router.push('/login');
+    };
 
     return (
         <header className="bg-white">
@@ -149,7 +157,7 @@ export default function Navbar() {
                 {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ?
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <button onClick={() => console.log('Login page')} className="text-sm font-semibold leading-6 text-gray-900">
-                            <Link href='/login' className='text-sm' target='_blank'>Log in</Link> <span aria-hidden="true">&rarr;</span>
+                            <Link href='/login' className='text-sm'>Log in</Link> <span aria-hidden="true">&rarr;</span>
                         </button>
                     </div> :
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -187,9 +195,9 @@ export default function Navbar() {
                                     </Link>
                                 </MenuItem>
                                 <MenuItem>
-                                    <Link href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                                    <p onClick={handleLogout} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                                         Log Out
-                                    </Link>
+                                    </p>
                                 </MenuItem>
                             </MenuItems>
                         </Menu>
@@ -284,12 +292,11 @@ export default function Navbar() {
                                     >
                                         Settings
                                     </Link>
-                                    <Link
-                                        href="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    <p onClick={handleLogout}
+                                        className="cursor-pointer -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         Log Out
-                                    </Link>
+                                    </p>
                                 </div>}
                         </div>
                     </div>

@@ -13,7 +13,7 @@ export default function SignUp() {
     const handleCreateAccount = () => {
         setAuthenticating(true);
         setTimeout(() => {
-            router.push('/');
+            router.push('/login');
             setAuthenticating(false);
         }, 800);
     };
@@ -21,7 +21,7 @@ export default function SignUp() {
         <div className="w-full flex justify-center flex-col items-center h-[100vh]">
             <div className="flex justify-center flex-col items-center md:p-4 sm:w-5/12 md: w-11/12 lg: w-11/12">
                 <div className="relative rounded-md shadow-sm w-full px-2">
-                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                    <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                         Name
                     </label>
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -29,19 +29,18 @@ export default function SignUp() {
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                                 <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clipRule="evenodd" />
                             </svg>
-
                         </span>
                     </div>
                     <input
                         disabled={authenticating}
-                        id="email"
-                        name="email"
+                        id="name"
+                        name="name"
                         type="text"
                         className={styles.input}
                     />
                 </div>
                 <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
-                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
                     </label>
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -61,7 +60,7 @@ export default function SignUp() {
                     />
                 </div>
                 <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
-                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                    <label htmlFor="number" className="block text-sm font-medium leading-6 text-gray-900">
                         Mobile number
                     </label>
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -73,8 +72,8 @@ export default function SignUp() {
                     </div>
                     <input
                         disabled={authenticating}
-                        id="email"
-                        name="email"
+                        id="number"
+                        name="number"
                         type="text"
                         className={styles.input}
                     />
@@ -95,12 +94,12 @@ export default function SignUp() {
                         disabled={authenticating}
                         id="password"
                         name="password"
-                        type="text"
+                        type="password"
                         className={styles.input}
                     />
                 </div>
                 <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
-                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                    <label htmlFor="confirm_password" className="block text-sm font-medium leading-6 text-gray-900">
                         Confirm Password
                     </label>
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -113,8 +112,8 @@ export default function SignUp() {
                     </div>
                     <input
                         disabled={authenticating}
-                        id="password"
-                        name="password"
+                        id="confirm_password"
+                        name="confirm_password"
                         type="password"
                         className={styles.input}
                     />
@@ -124,7 +123,7 @@ export default function SignUp() {
                 </div>
 
                 <div className="w-8/12 mt-6 flex items-center mb-2 w-full px-2">
-                    <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <input id="default-checkbox" type="checkbox" value="" className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                     <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</a>.</label>
                 </div>
 

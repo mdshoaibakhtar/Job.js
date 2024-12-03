@@ -23,8 +23,8 @@ export default function SelectorInput() {
     return (
         <Listbox value={selected} onChange={setSelected}>
             <Label className="block text-sm font-medium text-gray-900">User type</Label>
-            <div className="relative mt-1">
-                <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-2 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 sm:text-sm/6">
+            <div className="relative mt-1 cursor-pointer">
+                <ListboxButton className="relative w-full cursor-pointer rounded-md bg-white py-2 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 sm:text-sm/6">
                     <span className="flex items-center">
                         <img alt="" src={selected.avatar} className="size-5 shrink-0 rounded-full" />
                         <span className="ml-3 block truncate">{selected.name}</span>
@@ -42,7 +42,7 @@ export default function SelectorInput() {
                         <ListboxOption
                             key={person.id}
                             value={person}
-                            className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-gray-800 data-[focus]:text-white"
+                            className="group cursor-pointer relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-gray-800 data-[focus]:text-white"
                         >
                             <div className="flex items-center">
                                 <img alt="" src={person.avatar} className="size-5 shrink-0 rounded-full" />

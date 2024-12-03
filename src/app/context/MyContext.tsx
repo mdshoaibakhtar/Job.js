@@ -1,6 +1,6 @@
 'use client'
 import { createContext, useState, useContext, ReactNode } from 'react';
-
+import { getCookie } from '@/utils/CookiesManagement';
 // Define the type for your context (optional, if you're using TypeScript)
 interface MyContextType {
     state: boolean;
@@ -28,14 +28,15 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 
 // Create a provider component
 export function MyProvider({ children }: { children: ReactNode }) {
+    // console.log('First', getCookie('username'))
     const [state, setState] = useState(false);
     const [loader, setLoader] = useState(false);
     const [showToast, setShowToast] = useState(false);
     const [activeJob, setActiveJob] = useState('iu3ju0hdiz');
     const [loadSkeleton, setLoadSkeleton] = useState('all');
     const [userLoggedInDetails, setUserLoggedInDetails] = useState({
-        loggedIn: true,
-        email: 'test@gmail.com'
+        loggedIn: getCookie('useremail') != null ? true : false,
+        email: ''
     });
 
     return (

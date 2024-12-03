@@ -5,15 +5,21 @@ import { useMyContext } from '../context/MyContext';
 import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { setCookie } from '../../utils/CookiesManagement'
 
-const Login = () =>{
-    const { setLoader } = useMyContext();
+const Login = () => {
+    const { setUserLoggedInDetails } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
     const handleLogin = () => {
         setAuthenticating(true);
-        // setLoader(true)
+        setUserLoggedInDetails({
+            loggedIn: true,
+            email: 'imdshoaibakhatr@gmail.com'
+        })
+        setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
+        router.push('/');
     };
 
     return (
