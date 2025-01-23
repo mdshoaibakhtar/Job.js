@@ -5,7 +5,6 @@ import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
-import OtpField from '@/components/OtpField';
 import { Button, InputOtp, Form } from "@heroui/react";
 
 const ValidateOtp = () => {
@@ -43,6 +42,7 @@ const ValidateOtp = () => {
                     name="otp"
                     placeholder="Enter code"
                     errorMessage="Invalid OTP"
+                    // variant= "underlined"
                 />
                 <button
                     type="submit"

@@ -5,7 +5,6 @@ import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
-import OtpField from '@/components/OtpField';
 
 const ForgotPassword = () => {
     const { setUserLoggedInDetails } = useMyContext();
@@ -70,7 +69,6 @@ const ForgotPassword = () => {
                     <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm' target='_blank'>Create new account</Link></p>
                 </div> */}
             </div>
-            {/* <OtpField/> */}
         </div>
     );
 }
