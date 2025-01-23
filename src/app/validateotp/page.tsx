@@ -29,12 +29,12 @@ const ValidateOtp = () => {
             <Form
                 className=""
                 validationBehavior="native"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    const formData = new FormData(e.currentTarget);
-                    const otp = formData.get("otp");
-                    setOtp(otp);
-                }}
+                // onSubmit={(e) => {
+                //     e.preventDefault();
+                //     const formData = new FormData(e.currentTarget);
+                //     const otp = formData.get("otp");
+                //     setOtp(otp);
+                // }}
             >
                 <InputOtp
                     // isRequired
