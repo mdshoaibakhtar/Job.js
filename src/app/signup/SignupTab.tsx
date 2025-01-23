@@ -21,7 +21,7 @@ export default function SignupTab() {
     };
     return (
         <div className="flex w-full flex-col">
-            <Tabs aria-label="Options" className="w-full block" selectedKey={selected} onSelectionChange={setSelected}>
+            <Tabs aria-label="Options" className="w-full block" selectedKey={selected} onSelectionChange={() => setSelected}>
                 <Tab key="employee" title="Individual/Employee">
                     <div className="relative rounded-md shadow-sm w-full px-2">
                         <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
