@@ -1,25 +1,26 @@
 'use client';
-
 import Link from 'next/link';
 import { useMyContext } from '../context/MyContext';
 import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
+import OtpField from '@/components/OtpField';
 
-const Login = () => {
+const ForgotPassword = () => {
     const { setUserLoggedInDetails } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
     const handleLogin = () => {
-        setAuthenticating(true);
-        setUserLoggedInDetails({
-            loggedIn: true,
-            email: 'imdshoaibakhatr@gmail.com'
-        })
-        setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
-        router.push('/');
+        console.log('Calling')
+        // setAuthenticating(true);
+        // setUserLoggedInDetails({
+        //     loggedIn: true,
+        //     email: 'imdshoaibakhatr@gmail.com'
+        // })
+        // setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
+        router.push('/validateotp');
     };
 
     return (
@@ -45,26 +46,6 @@ const Login = () => {
                         className={styles.input}
                     />
                 </div>
-                <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
-                    <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
-                        Password
-                    </label>
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <span className="text-gray-500 sm:text-sm mt-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                            </svg>
-                        </span>
-                    </div>
-                    <input
-                        disabled={authenticating}
-                        id="password"
-                        name="password"
-                        type="password"
-                        className={styles.input}
-                    />
-                </div>
-
                 <div className="w-full sm:w-full px-2 md:w-full mt-6 text-center">
                     {authenticating ?
                         <button
@@ -80,17 +61,18 @@ const Login = () => {
                             onClick={handleLogin}
                             className="flex justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
-                            Log in
+                            Send OTP
                             <span className='ml-2' aria-hidden="true">&rarr;</span>
                         </button>}
                 </div>
-                <div className="w-full sm:w-full flex px-2 md:w-full mt-6 text-center sm:flex-row flex-col justify-between">
-                    <Link href='/forgotpassword' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
+                {/* <div className="w-full sm:w-full flex px-2 md:w-full mt-6 text-center sm:flex-row flex-col justify-between">
+                    <Link href='/forgot' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
                     <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm' target='_blank'>Create new account</Link></p>
-                </div>
+                </div> */}
             </div>
+            {/* <OtpField/> */}
         </div>
     );
 }
 
-export default Login
+export default ForgotPassword

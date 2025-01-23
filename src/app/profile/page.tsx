@@ -240,7 +240,7 @@ export default function Profile() {
           <div className="mt-6">
             {/* Text Editor */}
             <div className="py-0 flex sm:px-0">
-              <dd className="mt-1 text-md font-semibold leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Semicolon - Job portal</dd>
+              <dd className="mt-1 text-md font-semibold leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Jobdotjs - Job portal</dd>
             </div>
             <div className='w-full'>
               <dd className="mt-1 text-[11px] leading-3 text-gray-700 sm:col-span-2 sm:mt-0">Personal project</dd>

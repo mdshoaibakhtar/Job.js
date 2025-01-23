@@ -9,7 +9,7 @@ export default function Footer() {
                         {/* <div className="flex lg:flex-1">
                             <Link href="/" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Your Company</span>
-                                <img alt="" src="/semicolon.png" className="h-8 w-auto" />
+                                <img alt="" src="/jobdotjslogo.png" className="h-8 w-auto" />
                             </Link>
                         </div> */}
                         {/* <a href="#" className="flex justify-center lg:justify-start">

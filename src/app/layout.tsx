@@ -8,7 +8,7 @@ import Webchat from "@/components/Webchat";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Semicolon",
+  title: "Jobdotjs",
   description: "Find your dream job.",
 };
 

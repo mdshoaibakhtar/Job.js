@@ -1,8 +1,6 @@
 'use client'
-import Image from 'next/image'
 import { useState } from "react";
 import ChatUI from "./ChatUI";
-import logo from '../../public/semicolon.png'
 
 
 const Webchat = () => {
@@ -14,7 +12,7 @@ const Webchat = () => {
                     <div>
                         <div className="flex text-white justify-between pb-2 mb-2 border-b-2 border-gray-200">
                             <div className='flex'>
-                                <Image alt="" src={logo} className="h-8 w-auto" />
+                                {/* <Image alt="" src={logo} className="h-8 w-auto" /> */}
                                 <h3 className='mt-1'>Chat with us</h3>
                             </div>
                             <svg onClick={() => setOpenChat(!openChat)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 cursor-pointer">

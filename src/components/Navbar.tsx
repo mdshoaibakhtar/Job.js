@@ -91,7 +91,7 @@ export default function Navbar() {
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img alt="" src="/semicolon.png" className="h-8 w-auto" />
+                        <img alt="" src="/jobdotjslogo.png" className="h-14 w-auto" />
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
@@ -211,7 +211,7 @@ export default function Navbar() {
                             <span className="sr-only">Your Company</span>
                             <img
                                 alt=""
-                                src="/semicolon.png"
+                                src="/jobdotjslogo.png"
                                 className="h-8 w-auto"
                             />
                         </a>
