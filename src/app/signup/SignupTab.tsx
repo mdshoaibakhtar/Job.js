@@ -1,14 +1,11 @@
 'use client'
 import React, { useState } from "react";
-import { Tabs, Tab, Card, CardBody } from "@heroui/react";
+import { Tabs, Tab } from "@heroui/react";
 import styles from '../Custom.module.css';
-import Link from 'next/link'
 import { useRouter } from 'next/navigation';
-import SelectorInput from '@/components/SelectorInput';
-import PasswordField from "@/components/PasswordField";
 
 export default function SignupTab() {
-    const [selected, setSelected] = React.useState("photos");
+    const [selected, setSelected] = useState("employee");
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
@@ -21,7 +18,7 @@ export default function SignupTab() {
     };
     return (
         <div className="flex w-full flex-col">
-            <Tabs aria-label="Options" className="w-full block" selectedKey={selected} onSelectionChange={() => setSelected}>
+            <Tabs aria-label="Options" className="w-full block" selectedKey={selected} onSelectionChange={(tab) => setSelected(tab.toLocaleString())}>
                 <Tab key="employee" title="Individual/Employee">
                     <div className="relative rounded-md shadow-sm w-full px-2">
                         <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -121,7 +118,7 @@ export default function SignupTab() {
                         />
                     </div>
                 </Tab>
-                <Tab key="compnay" title="Company">
+                <Tab key="company" title="Company">
                     <div className="relative rounded-md shadow-sm w-full px-2">
                         <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                             Company name
