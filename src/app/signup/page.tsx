@@ -4,7 +4,6 @@ import { useState } from 'react';
 import styles from '../Custom.module.css';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
-import SelectorInput from '@/components/SelectorInput';
 import SignupTab from './SignupTab';
 import BackDropModal from '@/components/BackDropModal';
 
@@ -36,7 +35,7 @@ export default function SignUp() {
                 />
                 <div className="w-8/12 mt-6 flex items-center mb-2 w-full px-2">
                     <input id="default-checkbox" type="checkbox" value="" className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                    <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" onClick={handleOpen} className="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</a>.</label>
+                    <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <button onClick={handleOpen} className="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</button>.</label>
                 </div>
 
                 <div className="w-full mt-6 text-center px-2">

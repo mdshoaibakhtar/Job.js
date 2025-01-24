@@ -86,7 +86,7 @@ const Login = () => {
                 </div>
                 <div className="w-full sm:w-full flex px-2 md:w-full mt-6 text-center sm:flex-row flex-col justify-between">
                     <Link href='/forgotpassword' className='underline underline-offset-2 mt-4 text-sm'>Forgot password?</Link>
-                    <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm' target='_blank'>Create new account</Link></p>
+                    <p className="text-sm mt-4">Don't have an account? <Link href='/signup' className='underline underline-offset-2 mt-4 text-sm'>Create new account</Link></p>
                 </div>
             </div>
         </div>
