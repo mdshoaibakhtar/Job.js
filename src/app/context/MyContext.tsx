@@ -21,6 +21,8 @@ interface MyContextType {
 }>>;
     showToast: boolean;
     setShowToast: React.Dispatch<React.SetStateAction<boolean>>;
+    alert: boolean;
+    setAlert: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Provide a default value (could be null or a default object)
@@ -32,6 +34,7 @@ export function MyProvider({ children }: { children: ReactNode }) {
     const [state, setState] = useState(false);
     const [loader, setLoader] = useState(false);
     const [showToast, setShowToast] = useState(false);
+    const [alert, setAlert] = useState(false);
     const [activeJob, setActiveJob] = useState('iu3ju0hdiz');
     const [loadSkeleton, setLoadSkeleton] = useState('all');
     const [userLoggedInDetails, setUserLoggedInDetails] = useState({
@@ -52,7 +55,9 @@ export function MyProvider({ children }: { children: ReactNode }) {
             userLoggedInDetails, 
             setUserLoggedInDetails,
             showToast,
-            setShowToast
+            setShowToast,
+            alert,
+            setAlert
             }}>
             {children}
         </MyContext.Provider>
