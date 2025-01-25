@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import SignupTab from './SignupTab';
 import BackDropModal from '@/components/BackDropModal';
+import { Button } from '@heroui/react';
 
 export default function SignUp() {
     const [authenticating, setAuthenticating] = useState(false);
@@ -25,6 +26,33 @@ export default function SignUp() {
     const handleClose = () => {
         setOpenModal(false);
     }
+    const content = <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
+            risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+            quam.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
+            risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+            quam.
+        </p>
+        <p>
+            Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
+            adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+            officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
+            nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
+            deserunt nostrud ad veniam.
+        </p>
+    </div>
+    const footer = <div>
+        <Button color="danger" variant="light" onPress={handleClose}>
+            Close
+        </Button>
+        <Button color="primary" onPress={handleClose}>
+            Agreed
+        </Button>
+    </div>
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh]">
             <div className="flex justify-center flex-col items-center md:p-4 sm:w-5/12 md: w-11/12 lg: w-11/12">
@@ -32,6 +60,10 @@ export default function SignUp() {
                 <BackDropModal
                     openModal={openModal}
                     handleClose={handleClose}
+                    title="Terms & Conditions"
+                    content={content}
+                    footer={footer}
+                    size="md"
                 />
                 <div className="w-8/12 mt-6 flex items-center mb-2 w-full px-2">
                     <input id="default-checkbox" type="checkbox" value="" className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />

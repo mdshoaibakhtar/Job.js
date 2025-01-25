@@ -6,50 +6,32 @@ import {
     ModalBody,
     ModalFooter,
     Button,
+    Divider,
 } from "@heroui/react";
 
 // Define the props interface
 interface BackDropModalProps {
     openModal: boolean;
     handleClose: () => void;
+    title: string;
+    size: any;
+    content: any;
+    footer: any;
 }
 
-export default function BackDropModal({ openModal, handleClose }: BackDropModalProps) {
+export default function BackDropModal({ openModal, handleClose, title, content, footer, size }: BackDropModalProps) {
     return (
-        <Modal backdrop="blur" isOpen={openModal} onClose={handleClose}>
+        <Modal backdrop="blur" isOpen={openModal} onClose={handleClose} size={size} scrollBehavior="inside" placement="center">
             <ModalContent>
-                {(handleClose) => (
-                    <>
-                        <ModalHeader className="flex flex-col gap-1">Terms & Conditions</ModalHeader>
-                        <ModalBody>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                                risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                                quam.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                                risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                                quam.
-                            </p>
-                            <p>
-                                Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-                                adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                                officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                                nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
-                                deserunt nostrud ad veniam.
-                            </p>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="danger" variant="light" onPress={handleClose}>
-                                Close
-                            </Button>
-                            <Button color="primary" onPress={handleClose}>
-                                Agreed
-                            </Button>
-                        </ModalFooter>
-                    </>
-                )}
+                <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
+                <Divider className="my-2" />
+                <ModalBody>
+                    {content}
+                </ModalBody>
+                <Divider className="my-2" />
+                <ModalFooter>
+                    {footer}
+                </ModalFooter>
             </ModalContent>
         </Modal>
     );
