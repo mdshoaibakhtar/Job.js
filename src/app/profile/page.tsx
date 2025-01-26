@@ -9,12 +9,14 @@ import { Tooltip } from "@heroui/react";
 import { formJson } from '@/utils/Constant';
 import JobDetailsDynamicField from '@/components/JobDetailsDynamicField';
 import GenerateField from './generateField';
+import ProjectDynamicField from '@/components/ProjectDynamicField.tsx';
+import EducationDetailsDynamicField from '@/components/EducationDetailsDynamicField.tsx';
 
 export default function Profile() {
   const [openModal, setOpenModal] = useState(false);
   const [content, setContent] = useState([])
   const [resumeFileName, setResumeFileName] = useState('')
-  const [detailsType, setDetailsType] = useState('Edit personal information')
+  const [modalTitle, setModalTitle] = useState('Edit personal information')
 
   const openBackdropModal = (type:string) => {
     const arr: any = [];
@@ -30,9 +32,15 @@ export default function Profile() {
           />)
         )
       })
-    } else {
-      setDetailsType('Edit your work experience')
+    } else if (type =='career') {
+      setModalTitle('Edit your work experience')
       arr.push(<JobDetailsDynamicField key={0}/>)
+    } else if (type == 'projects') {
+      setModalTitle('Edit your projects')
+      arr.push(<ProjectDynamicField key={0} />)
+    } else if (type == 'education') {
+      setModalTitle('Edit your educational qualification')
+      arr.push(<EducationDetailsDynamicField key={0} />)
     }
     setContent(arr)
     setOpenModal(true);
@@ -57,7 +65,7 @@ export default function Profile() {
       <BackDropModal
         openModal={openModal}
         handleClose={handleClose}
-        title={detailsType}
+        title={modalTitle}
         content={content}
         footer={footer}
         size="4xl"
@@ -297,8 +305,13 @@ export default function Profile() {
           </div>
         </div>
         <div className='px-4 md:px-0 lg:px-0'>
-          <div className="mt-6">
+          <div className="mt-6 flex justify-between">
             <h3 className="text-base font-semibold leading-7 text-gray-900">Projects</h3>
+            <Tooltip content="Edit..." showArrow={true}>
+              <button onClick={() => openBackdropModal('projects')} className='flex items-center border rounded-sm border-slate-50'> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 ml-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+              </svg></button>
+            </Tooltip>
           </div>
           <div className="mt-6">
             {/* Text Editor */}
@@ -313,8 +326,13 @@ export default function Profile() {
           </div>
         </div>
         <div className='px-4 md:px-0 lg:px-0'>
-          <div className="mt-6">
+          <div className="mt-6 flex justify-between">
             <h3 className="text-base font-semibold leading-7 text-gray-900">Education</h3>
+            <Tooltip content="Edit..." showArrow={true}>
+              <button onClick={() => openBackdropModal('education')} className='flex items-center border rounded-sm border-slate-50'> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 ml-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+              </svg></button>
+            </Tooltip>
           </div>
           <div className="mt-6">
             <div className="py-0 flex sm:px-0">
