@@ -26,10 +26,10 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronUpIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import Modal from './Modal'
 import { useMyContext } from '@/app/context/MyContext'
 import { clearCookie } from '@/utils/CookiesManagement'
 import { useRouter } from 'next/navigation';
+import { Badge } from '@heroui/react'
 
 const products = [
     {
@@ -77,6 +77,7 @@ const callsToAction = [
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isOpenSideDrawer, setIsOpenSideDrawer] = useState(false)
     const { userLoggedInDetails } = useMyContext();
     const router = useRouter();
 
@@ -84,10 +85,13 @@ export default function Navbar() {
         clearCookie('useremail')
         router.push('/login');
     };
+    const handleClose = () => {
+        setIsOpenSideDrawer(false)
+    }
 
     return (
         <header className="bg-white">
-            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-0">
+            <nav aria-label="Global" className="mx-auto flex max-w-[95%] items-center justify-between p-6 px-2 lg:px-0">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
@@ -161,14 +165,23 @@ export default function Navbar() {
                         </button>
                     </div> :
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <button
-                            type="button"
-                            className="relative rounded-full p-1 mr-2 text-gray-400 hover:text-gray focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                        >
-                            <span className="absolute -inset-1.5" />
-                            <span className="sr-only">View notifications</span>
-                            <BellIcon aria-hidden="true" className="h-6 w-6" />
-                        </button>
+                        {/* <SideDrawer
+                            title='Notifications'
+                            content={<>Hello</>}
+                            isOpen={isOpenSideDrawer}
+                            handleClose={handleClose}
+                        /> */}
+                        <Badge content={8} color="danger">
+                            <button
+                                type="button"
+                                onClick={() => setIsOpenSideDrawer(true)}
+                                className="relative rounded-full p-1 text-gray-400 hover:text-gray focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            >
+                                <span className="absolute -inset-1.5" />
+                                <span className="sr-only">View notifications</span>
+                                <BellIcon aria-hidden="true" className="h-6 w-6" />
+                            </button>
+                        </Badge>
 
                         <Menu as="div" className="relative ml-3">
                             <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
