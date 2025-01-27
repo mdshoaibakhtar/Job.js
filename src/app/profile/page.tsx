@@ -8,9 +8,9 @@ import { useState } from 'react';
 import { Tooltip } from "@heroui/react";
 import { formJson } from '@/utils/Constant';
 import JobDetailsDynamicField from '@/components/JobDetailsDynamicField';
-import GenerateField from './generateField';
 import ProjectDynamicField from '@/components/ProjectDynamicField.tsx';
 import EducationDetailsDynamicField from '@/components/EducationDetailsDynamicField.tsx';
+import GenerateField from './GenerateField';
 
 export default function Profile() {
   const [openModal, setOpenModal] = useState(false);
