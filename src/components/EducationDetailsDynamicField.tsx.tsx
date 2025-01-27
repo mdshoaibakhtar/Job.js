@@ -5,11 +5,11 @@ import { Accordion, AccordionItem, Checkbox, DatePicker, Input, Tooltip } from "
 const EducationDetailsDynamicField = () => {
     const dynamicFieldJson = [{
         id: 'gej3873he7gg37d',
-        degree_name: 'Cloudkaptan cosultancy services',
-        institute_name: 'Software engineer',
-        start_date: 'Sep 2022',
+        degree_name: 'Bachelor of technology',
+        institute_name: 'Siliguri institute of technology, Siliguri',
+        start_date: '2019',
         is_pursuing: true,
-        end_date: 'Sep 2022'
+        end_date: '2023'
     }
     ]
     const addNewJobExperience = () => {
@@ -59,7 +59,7 @@ const EducationDetailsDynamicField = () => {
                                                     <Input
                                                         type='name'
                                                         radius="sm"
-                                                        placeholder='Please enter company name'
+                                                        placeholder='Please enter your course/degree name'
                                                         defaultValue={data.degree_name}
                                                     />
                                                 </div>
@@ -76,7 +76,7 @@ const EducationDetailsDynamicField = () => {
                                                     <Input
                                                         type='name'
                                                         radius="sm"
-                                                        placeholder='Please enter company name'
+                                                        placeholder='Your institute name'
                                                         defaultValue={data.institute_name}
                                                     />
                                                 </div>

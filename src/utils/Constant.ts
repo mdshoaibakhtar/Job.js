@@ -85,14 +85,14 @@ export const formJson = [
         ]
     },
     {
-        label: "Current salary (In Lacs)",
+        label: "Current salary",
         "placeholder": "Your current salary",
         "defaultValue": "700000",
         "type": "price",
         options: []
     },
     {
-        label: "Expected salary (In Lacs)",
+        label: "Expected salary",
         "placeholder": "Your expected salary",
         "defaultValue": "1000000",
         "type": "price",

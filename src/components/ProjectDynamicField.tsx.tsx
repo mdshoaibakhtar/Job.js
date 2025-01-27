@@ -60,7 +60,7 @@ const ProjectDynamicField = () => {
                                                     <Input
                                                         type='name'
                                                         radius="sm"
-                                                        placeholder='Please enter company name'
+                                                        placeholder='Please enter your project name'
                                                         defaultValue={data.title}
                                                     />
                                                 </div>
@@ -77,7 +77,7 @@ const ProjectDynamicField = () => {
                                                     <Input
                                                         type='name'
                                                         radius="sm"
-                                                        placeholder='Please enter company name'
+                                                        placeholder='Project description'
                                                         defaultValue={data.short_description}
                                                     />
                                                 </div>
@@ -102,7 +102,7 @@ const ProjectDynamicField = () => {
                                                                 overflow: 'hidden',
                                                                 scrollbarWidth: 'none',
                                                             }}
-                                                            placeholder='Tell us about your work experience (In comma separated points)'
+                                                            placeholder='Tell us about your project (In comma separated points)'
                                                         />
                                                     </div>
                                                 </div>
@@ -119,8 +119,8 @@ const ProjectDynamicField = () => {
                                                     <Input
                                                         type='name'
                                                         radius="sm"
-                                                        placeholder='Please enter company name'
-                                                        defaultValue={data.short_description}
+                                                        placeholder='Paste your live project link'
+                                                        defaultValue={data.link}
                                                     />
                                                 </div>
                                             </form>
@@ -136,8 +136,8 @@ const ProjectDynamicField = () => {
                                                     <Input
                                                         type='name'
                                                         radius="sm"
-                                                        placeholder='Please enter company name'
-                                                        defaultValue={data.short_description}
+                                                        placeholder='Paste your project github repository link'
+                                                        defaultValue={data.github}
                                                     />
                                                 </div>
                                             </form>

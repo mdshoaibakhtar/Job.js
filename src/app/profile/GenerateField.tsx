@@ -2,13 +2,12 @@ import { Checkbox, DatePicker, DateValue, Input, Select, SelectItem, Textarea, T
 import React from "react"
 
 interface generateFieldProps {
-    key: number;
     dataType: string;
     fieldLabel: string;
     fieldPlaceholder: string;
     selectOptions: any;
 }
-const GenerateField = ({key, dataType, fieldLabel, fieldPlaceholder, selectOptions }: generateFieldProps) => {
+const GenerateField = ({dataType, fieldLabel, fieldPlaceholder, selectOptions }: generateFieldProps) => {
     const checkFutureDate = (date: any) => {
         const givenDate = new Date(date);
         const today = new Date();
@@ -19,7 +18,7 @@ const GenerateField = ({key, dataType, fieldLabel, fieldPlaceholder, selectOptio
         }
     }
     return (
-        <div className="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0" key={key}>
+        <div className="px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900 items-center pt-2">
                 {dataType === 'checkbox' ? '' : fieldLabel}
             </dt>
@@ -121,7 +120,6 @@ const GenerateField = ({key, dataType, fieldLabel, fieldPlaceholder, selectOptio
                                                 type={dataType}
                                                 radius="sm"
                                                 placeholder={fieldPlaceholder}
-                                                // defaultValue={attr.defaultValue}
                                             />
                                         )}
                     </div>
