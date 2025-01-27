@@ -29,7 +29,7 @@ import Link from 'next/link'
 import { useMyContext } from '@/app/context/MyContext'
 import { clearCookie } from '@/utils/CookiesManagement'
 import { useRouter } from 'next/navigation';
-import { Badge } from '@heroui/react'
+import { Badge, Divider } from '@heroui/react'
 
 const products = [
     {
@@ -171,7 +171,16 @@ export default function Navbar() {
                             isOpen={isOpenSideDrawer}
                             handleClose={handleClose}
                         /> */}
-                        <Badge content={8} color="danger">
+                        <Badge content={2} color="danger" className='mr-1'>
+                            <button
+                                className="relative rounded-full p-1 text-gray-400 hover:text-gray focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#9ca3af" className="size-6 cursor-pointer">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                                </svg>
+                            </button>
+                        </Badge>
+                        <Badge content={8} color="danger" className='mr-2'>
                             <button
                                 type="button"
                                 onClick={() => setIsOpenSideDrawer(true)}
@@ -207,6 +216,17 @@ export default function Navbar() {
                                         Settings
                                     </Link>
                                 </MenuItem>
+                                <MenuItem>
+                                    <Link href="/appliedusers" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                                        Applied users
+                                    </Link>
+                                </MenuItem>
+                                <MenuItem>
+                                    <Link href="/jobposting" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                                        Job posting
+                                    </Link>
+                                </MenuItem>
+                                <Divider />
                                 <MenuItem>
                                     <p onClick={handleLogout} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                                         Log Out

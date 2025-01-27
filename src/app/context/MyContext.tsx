@@ -38,7 +38,7 @@ export function MyProvider({ children }: { children: ReactNode }) {
     const [activeJob, setActiveJob] = useState('iu3ju0hdiz');
     const [loadSkeleton, setLoadSkeleton] = useState('all');
     const [userLoggedInDetails, setUserLoggedInDetails] = useState({
-        loggedIn: getCookie('useremail') != null ? true : false,
+        loggedIn: true != null ? true : false,
         email: ''
     });
 
