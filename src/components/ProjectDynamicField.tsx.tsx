@@ -9,7 +9,7 @@ const ProjectDynamicField = () => {
         title: 'Jobdotjs - Job portal',
         link: 'Personal project',
         github: 'https://mdshoaibakhtar.github.io',
-        short_description: 'This is my short description of my project',
+        short_description: 'Short description...',
         explanation: ''
     }
     ]
@@ -20,7 +20,7 @@ const ProjectDynamicField = () => {
             title: 'Jobdotjs - Job portal',
             link: 'Personal project',
             github: 'https://mdshoaibakhtar.github.io',
-            short_description: 'This is my short description of my project',
+            short_description: 'Short description...',
             explanation: ''
         }
         )

@@ -6,13 +6,13 @@ import { employementTypeOptions, notice_period } from "@/utils/Constant"
 const JobDetailsDynamicField = () => {
     const dynamicFieldJson = [{
             company_id: 'gej3873he7gg37d',
-            company_name: 'Cloudkaptan cosultancy services',
+            company_name: 'Epixover technology',
             job_title: 'Software engineer',
             employment_type: 'fulltime',
             start_date: 'Sep 2022',
             is_this_your_current_company: true,
             end_date: 'Sep 2022',
-            current_annual_salary: '70000',
+            current_annual_salary: 'XXXXXXX',
             notice_period: '15days',
             work_experience: ''
         }

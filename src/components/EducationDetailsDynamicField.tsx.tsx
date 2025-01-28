@@ -16,7 +16,7 @@ const EducationDetailsDynamicField = () => {
         let jobList = [...dynamicFieldJson];
         jobList.push({
             id: 'gej3873he7gg37d',
-            degree_name: 'Cloudkaptan cosultancy services',
+            degree_name: 'Epixover technology',
             institute_name: 'Software engineer',
             start_date: 'Sep 2022',
             is_pursuing: true,

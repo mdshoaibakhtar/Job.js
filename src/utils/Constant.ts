@@ -554,7 +554,7 @@ export const formJson = [
 export const dynamicFieldJson = [
     {
         company_id: 'gej3873he7gg37d',
-        company_name: 'Cloudkaptan cosultancy services',
+        company_name: 'Epixover technology',
         employeement_type: 'Fulltime',
         job_period: 'Sep 2022 - Present',
         current_employee: true,
@@ -582,7 +582,7 @@ export const careerFormJson = [
     {
         "label": "Company Name",
         "placeholder": "Please enter your company name",
-        "defaultValue": 'Cloudkaptan cosultancy services',
+        "defaultValue": 'Epixover technology',
         "type": "name",
         "options": []
     },
