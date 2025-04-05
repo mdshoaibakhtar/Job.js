@@ -2,23 +2,45 @@
 'use client'
 import { useState } from 'react';
 import styles from '../Custom.module.css';
-import Link from 'next/link'
+import Link from 'next/link'     
 import { useRouter } from 'next/navigation';
-import SignupTab from './SignupTab';
+import SignupTab from './SignupTab';                   
 import BackDropModal from '../../components/Generic/BackDropModal';
-import { Button } from '@heroui/react';
+import { Button } from '@heroui/react';                                             
+import { FormDataType } from '@/interfaces/OnBoardingInterfaces';                                   
+import { useMyContext } from '../context/MyContext';
+import { post } from '@/webservices/webservices';
+import { toast } from 'react-toastify';
+
 
 export default function SignUp() {
     const [authenticating, setAuthenticating] = useState(false);
+    const { setLoader } = useMyContext();
     const [openModal, setOpenModal] = useState(false);
     const router = useRouter();
+    const [formData, setFormData] = useState<FormDataType>({
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone_number: '',
+        website: '',
+        is_organization: false
+    })
 
     const handleCreateAccount = () => {
-        setAuthenticating(true);
-        setTimeout(() => {
-            router.push('/login');
-            setAuthenticating(false);
-        }, 800);
+        setLoader(true);
+        post('/createuser', formData).then((response) => {
+            setLoader(false);
+            if (response.status_code == 400) {
+                toast.error(response.message)
+                return
+            }
+            toast.success(response.message)
+            sessionStorage.setItem('unverified_email', formData.email)
+            router.push('/verifyemail');
+        }).catch((err) => {
+            setLoader(false);
+        }) 
     };
     const handleOpen = () => {
         setOpenModal(true);
@@ -50,14 +72,14 @@ export default function SignUp() {
             Close
         </Button>
         <Button color="primary" onPress={handleClose}>
-            Agreed
+            Agree
         </Button>
     </div>
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh]">
             <div className="flex justify-center flex-col items-center md:p-4 sm:w-5/12 md: w-11/12 lg: w-11/12">
                 <h3 className='mb-2 antialiased font-bold'>Create new account</h3>
-                <SignupTab />
+                <SignupTab setFormData={setFormData} />
                 <BackDropModal
                     openModal={openModal}
                     handleClose={handleClose}
@@ -66,12 +88,12 @@ export default function SignUp() {
                     footer={footer}
                     size="md"
                 />
-                <div className="w-8/12 flex items-center w-full px-2">
+                <div className="w-8/12 flex items-center w-full">
                     <input id="default-checkbox" type="checkbox" value="" className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <button onClick={handleOpen} className="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</button>.</label>
                 </div>
 
-                <div className="w-full mt-4 text-center px-2">
+                <div className="w-full mt-4 text-center">
                     {authenticating ?
                         <button
                             type="submit"
