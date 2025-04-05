@@ -25,6 +25,7 @@ const ForgotPassword = () => {
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
             <div className={`w-full sm:w-5/12 md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4`}>
+                <h3 className='antialiased font-bold'>Forgot password</h3>
                 <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email

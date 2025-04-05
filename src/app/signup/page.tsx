@@ -56,6 +56,7 @@ export default function SignUp() {
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh]">
             <div className="flex justify-center flex-col items-center md:p-4 sm:w-5/12 md: w-11/12 lg: w-11/12">
+                <h3 className='mb-2 antialiased font-bold'>Create new account</h3>
                 <SignupTab />
                 <BackDropModal
                     openModal={openModal}
@@ -65,12 +66,12 @@ export default function SignUp() {
                     footer={footer}
                     size="md"
                 />
-                <div className="w-8/12 mt-6 flex items-center mb-2 w-full px-2">
+                <div className="w-8/12 flex items-center w-full px-2">
                     <input id="default-checkbox" type="checkbox" value="" className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <button onClick={handleOpen} className="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</button>.</label>
                 </div>
 
-                <div className="w-full mt-6 text-center px-2">
+                <div className="w-full mt-4 text-center px-2">
                     {authenticating ?
                         <button
                             type="submit"
@@ -90,8 +91,8 @@ export default function SignUp() {
                         </button>}
 
                 </div>
-                <div className="w-full px-2 mt-6 text-center flex justify-between">
-                    <p className="text-sm mt-4">Already have an account? <Link href='/login' className='underline underline-offset-2 mt-4 text-sm'>Log in</Link></p>
+                <div className="w-full px-2 mt-2 text-center flex justify-between">
+                    <p className="text-sm">Already have an account? <Link href='/login' className='underline underline-offset-2 mt-4 text-sm'>Log in</Link></p>
                 </div>
             </div>
         </div>

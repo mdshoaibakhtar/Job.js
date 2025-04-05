@@ -20,7 +20,7 @@ export default function SignupTab() {
         <div className="flex w-full flex-col">
             <Tabs aria-label="Options" className="w-full block" selectedKey={selected} onSelectionChange={(tab) => setSelected(tab.toLocaleString())}>
                 <Tab key="employee" title="Individual/Employee">
-                    <div className="relative rounded-md shadow-sm w-full px-2">
+                    <div className="relative rounded-md shadow-sm w-full ">
                         <label htmlFor="first_name" className="block text-sm font-medium leading-6 text-gray-900">
                             First name
                         </label>
@@ -39,7 +39,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="last_name" className="block text-sm font-medium leading-6 text-gray-900">
                             Last name
                         </label>
@@ -58,7 +58,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                             Email
                         </label>
@@ -78,7 +78,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="phone_number" className="block text-sm font-medium leading-6 text-gray-900">
                             Mobile number
                         </label>
@@ -98,7 +98,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                             Password
                         </label>
@@ -117,7 +117,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="confirm_password" className="block text-sm font-medium leading-6 text-gray-900">
                             Confirm Password
                         </label>
@@ -138,7 +138,7 @@ export default function SignupTab() {
                     </div>
                 </Tab>
                 <Tab key="company" title="Company">
-                    <div className="relative rounded-md shadow-sm w-full px-2">
+                    <div className="relative rounded-md shadow-sm w-full ">
                         <label htmlFor="first_name" className="block text-sm font-medium leading-6 text-gray-900">
                             Company name
                         </label>
@@ -157,7 +157,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                             Email
                         </label>
@@ -177,7 +177,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="phone_number" className="block text-sm font-medium leading-6 text-gray-900">
                             Mobile number
                         </label>
@@ -197,7 +197,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="website" className="block text-sm font-medium leading-6 text-gray-900">
                             Website
                         </label>
@@ -217,7 +217,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                             Password
                         </label>
@@ -236,7 +236,7 @@ export default function SignupTab() {
                             className={styles.input}
                         />
                     </div>
-                    <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                    <div className="relative rounded-md shadow-sm mt-2 w-full ">
                         <label htmlFor="confirm_password" className="block text-sm font-medium leading-6 text-gray-900">
                             Confirm Password
                         </label>

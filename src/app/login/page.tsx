@@ -7,39 +7,43 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
 import AlertPopUp from '@/components/Generic/AlertPopUp';
+import Toast from '@/components/Generic/Toast';
+import { toast, Slide } from 'react-toastify';
 
 const Login = () => {
     const { setUserLoggedInDetails } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
-    const [isVisible, setIsVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(true)
     const router = useRouter();
 
     const handleLogin = () => {
-        setIsVisible(true)
-        setTimeout(() => {
-            setIsVisible(false)
-        }, 1000);
-        setAuthenticating(true);
-        setUserLoggedInDetails({
-            loggedIn: true,
-            email: 'imdshoaibakhatr@gmail.com'
-        })
-        setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
-        router.push('/');
+        // setIsVisible(true)
+        toast.error("Invalid email or password")
+        // setTimeout(() => {
+        //     setIsVisible(false)
+        // }, 1000);
+        // setAuthenticating(true);
+        // setUserLoggedInDetails({
+        //     loggedIn: true,
+        //     email: 'imdshoaibakhatr@gmail.com'
+        // })
+        // setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
+        // router.push('/');
     };
 
     return (
         <>
-            <AlertPopUp
+            {/* <Toast/> */}
+            {/* <AlertPopUp
             title = {"Something went wrong"}
             description = {"Invalid email or password. please verify before enter"}
             isVisible={isVisible}
             setIsVisible={setIsVisible}
             alertColor="danger"
-            />
-        <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
+            /> */}
+            <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
             <div className={`w-full sm:w-5/12 md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4`}>
-                <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
+                <div className="relative rounded-md shadow-sm mt-2 w-full px-2">
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email
                     </label>

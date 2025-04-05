@@ -26,7 +26,8 @@ const ValidateOtp = () => {
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
             <div className={`w-full sm:w-1/4 md: w-full lg: w-5/12 flex justify-center flex-col items-center p-4`}>
-                <div className="relative rounded-md mt-4 w-full flex justify-center">
+            <h3 className='antialiased font-bold'>Enter OTP</h3>
+                <div className="relative rounded-md mt-2 w-full flex justify-center">
                     <InputOtp
                         // isRequired
                         aria-label="OTP input field"
