@@ -1,6 +1,6 @@
 'use client'
-import style from './Loader.module.css'
-import { useMyContext } from '../app/context/MyContext';
+import style from '../../app/Loader.module.css'
+import { useMyContext } from '../../app/context/MyContext';
 
 export default function Loader() {
     const { loader } = useMyContext();

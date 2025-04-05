@@ -1,21 +1,19 @@
 'use client';
 import { RssIcon, LockOpenIcon, FilmIcon } from '@heroicons/react/20/solid'
-import Promotion from './Promotion'
-import Pricing from './Pricing'
-import Statistics from './Statistics'
-import Newsletter from './Newsletter';
-import Jobcard from './Jobcard';
-import Collab from './Collab';
-import Banner from './Banner';
-import Form from './Form';
-import Team from './Team';
+import Promotion from '../Generic/Promotion'
+import Pricing from '../Generic/Pricing'
+import Statistics from '../Static/Statistics'
+import Newsletter from '../Generic/Newsletter';
+import Jobcard from '../Jobs/Jobcard';
+import Collab from '../Static/Collab';
+import Banner from '../Generic/Banner';
+import Form from '../Profile/Form';
+import Team from '../Static/Team';
 import Image from "next/image";
-import Testimonials from './Testimonials';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import img from "../../dashboard_image_1.jpg"
-import Device from './Device';
-import Chart from './Chart';
+import Testimonials from '../Static/Testimonials';
+import Navbar from '../Generic/Navbar';
+import Footer from '../Footer/Footer';
+import img from "../../../public/assets/dashboard_image_1.jpg"
 import { useRouter } from 'next/navigation';
 const features = [
     {

@@ -1,17 +1,17 @@
 
 'use client'
-import Jobcard from '../../components/Jobcard';
-import JobDetails from '../../components/JobDetails';
-import Footer from '../../components/Footer';
-import Navbar from '../../components/Navbar';
+import Jobcard from '../../components/Jobs/Jobcard';
+import JobDetails from '../../components/Jobs/JobDetails';
+import Footer from '../../components/Footer/Footer';
+import Navbar from '../../components/Generic/Navbar';
 import styles from '../Custom.module.css';
-import JobCardSkelton from '@/components/JobCardSkelton';
-import JobDetailsSkeleton from '@/components/JobDetailsSkeleton';
-import Toast from '@/components/Toast';
+import JobCardSkelton from '../../components/Jobs/JobCardSkelton';
+import JobDetailsSkeleton from '../../components/Jobs/JobDetailsSkeleton';
+import Toast from '@/components/Generic/Toast';
 import { useMyContext } from '../context/MyContext';
 import { useEffect, useState } from 'react';
-import CustomizedSnackbars from '@/components/SnackBar';
-import SearchBar from '@/components/Searchbar';
+import CustomizedSnackbars from '@/components/Generic/SnackBar';
+import SearchBar from '@/components/Generic/Searchbar';
 
 export default function jobs() {
     const { loadSkeleton, setLoadSkeleton, setShowToast } = useMyContext();
