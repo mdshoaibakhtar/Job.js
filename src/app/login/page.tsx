@@ -6,7 +6,7 @@ import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
-import AlertPopUp from '@/components/AlertPopUp';
+import AlertPopUp from '@/components/Generic/AlertPopUp';
 
 const Login = () => {
     const { setUserLoggedInDetails } = useMyContext();

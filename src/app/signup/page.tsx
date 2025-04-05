@@ -5,7 +5,7 @@ import styles from '../Custom.module.css';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import SignupTab from './SignupTab';
-import BackDropModal from '@/components/BackDropModal';
+import BackDropModal from '../../components/Generic/BackDropModal';
 import { Button } from '@heroui/react';
 
 export default function SignUp() {

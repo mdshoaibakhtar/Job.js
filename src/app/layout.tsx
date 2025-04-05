@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Loader from '../components/Loader';
+import Loader from '../components/Generic/Loader';
 import { MyProvider } from './context/MyContext'; // Import your provider
-import Webchat from "@/components/Webchat";
+import Webchat from "@/components/Webchat/Webchat";
 
 const inter = Inter({ subsets: ["latin"] });
 

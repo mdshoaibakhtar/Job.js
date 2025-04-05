@@ -1,15 +1,15 @@
 'use client'
-import BackDropModal from '@/components/BackDropModal';
-import EditableForm from '@/components/EditableForm'
-import Navbar from '@/components/Navbar'
+import BackDropModal from '../../components/Generic/BackDropModal';
+import EditableForm from '@/components/Profile/EditableForm'
+import Navbar from '@/components/Generic/Navbar'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 import { Button } from '@heroui/react';
 import { useState } from 'react';
 import { Tooltip } from "@heroui/react";
 import { formJson } from '@/utils/Constant';
-import JobDetailsDynamicField from '@/components/JobDetailsDynamicField';
-import ProjectDynamicField from '@/components/ProjectDynamicField.tsx';
-import EducationDetailsDynamicField from '@/components/EducationDetailsDynamicField.tsx';
+import JobDetailsDynamicField from '../../components/Jobs/JobDetailsDynamicField';
+import ProjectDynamicField from '@/components/Profile/ProjectDynamicField.tsx';
+import EducationDetailsDynamicField from '@/components/Profile/EducationDetailsDynamicField.tsx';
 import GenerateField from './GenerateField';
 
 export default function Profile() {

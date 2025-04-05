@@ -5,10 +5,10 @@ import {
   MapPinIcon,
   ClockIcon,
 } from '@heroicons/react/20/solid'
-import { company_mock_data } from '../mockdata/MockData'
+import { company_mock_data } from '../../mockdata/MockData'
 import { useMyContext } from '@/app/context/MyContext';
 import { useEffect, useState } from 'react';
-import Modal from './Modal'
+import Modal from '../Generic/Modal'
 import LoginComponent from './LoginComponent';
 
 export default function Jobcard() {

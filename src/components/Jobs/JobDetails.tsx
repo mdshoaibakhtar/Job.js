@@ -10,7 +10,7 @@ import {
 } from '@heroicons/react/20/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { useMyContext } from '@/app/context/MyContext';
-import { company_mock_data } from '../mockdata/MockData'
+import { company_mock_data } from '../../mockdata/MockData'
 import { useEffect } from 'react';
 import JobDetailsSkeleton from './JobDetailsSkeleton';
 

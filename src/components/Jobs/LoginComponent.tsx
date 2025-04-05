@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useMyContext } from '../app/context/MyContext';
-import styles from '../app/Custom.module.css';
+import { useMyContext } from '../../app/context/MyContext';
+import styles from '../../app/Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
