@@ -11,6 +11,7 @@ export async function get(endpoint: string) {
 
 export async function post(endpoint: string, payload:any){
     try {
+        console.log('payload', payload);
         const res = await fetch(api_url + endpoint, {
             method: 'POST',
             headers: {

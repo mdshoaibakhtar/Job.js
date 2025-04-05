@@ -4,5 +4,6 @@ export interface FormDataType {
     email: string,
     phone_number: string,
     website: string,
-    is_organization: boolean
+    is_organization: boolean,
+    is_verified: boolean,
 }
