@@ -24,7 +24,8 @@ export default function SignUp() {
         email: '',
         phone_number: '',
         website: '',
-        is_organization: false
+        is_organization: false,
+        is_verified: false,
     })
 
     const handleCreateAccount = () => {

@@ -1,26 +1,54 @@
 'use client';
-
-import Link from 'next/link';
 import { useMyContext } from '../context/MyContext';
 import styles from '../Custom.module.css';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { setCookie } from '../../utils/CookiesManagement'
+import { toast } from 'react-toastify';
+import { post } from '@/webservices/webservices';
 
 const ResetPassword = () => {
-    const { setUserLoggedInDetails } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
+    const { setLoader } = useMyContext();
+    const [passwords, setPasswords] = useState({
+        password :'',
+        confirm_password :'',
+    });
 
-    const handleLogin = () => {
-        // setAuthenticating(true);
-        // setUserLoggedInDetails({
-        //     loggedIn: true,
-        //     email: 'imdshoaibakhatr@gmail.com'
-        // })
-        // setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
-        router.push('/login');
+    const resetPassword = () => {
+        if (passwords['password'] != passwords['confirm_password']) {
+            console.log(passwords['password'] != passwords['confirm_password']);
+            toast.warning('Password & confirm password should be same.')
+        }
+        setLoader(true);
+        const email = sessionStorage.getItem('unverified_email')
+        post('/reset-password', {
+            email: email,
+            password: passwords['password']
+        }).then((response) => {
+            setLoader(false);
+            console.log('response', response);
+            if (response.status_code == 400) {
+                toast.error(response.message)
+                return
+            }
+            toast.success(response.message)
+            router.push('/login');
+            sessionStorage.clear()
+        }).catch((err) => {
+            setLoader(false);
+            toast.error(err)
+        })
     };
+
+    const handleOnChange = (e:any) => {
+        e.preventDefault();
+        setPasswords((data) => ({
+            ...passwords,
+            [e.target.name] : e.target.value
+        }))
+    }
+    
 
     return (
         <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
@@ -39,10 +67,11 @@ const ResetPassword = () => {
                     </div>
                     <input
                         disabled={authenticating}
-                        id="email"
-                        name="email"
+                        id="password"
+                        name="password"
                         type="text"
                         className={styles.input}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </div>
                 <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
@@ -58,10 +87,11 @@ const ResetPassword = () => {
                     </div>
                     <input
                         disabled={authenticating}
-                        id="password"
-                        name="password"
+                        id="confirm_password"
+                        name="confirm_password"
                         type="password"
                         className={styles.input}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </div>
 
@@ -77,7 +107,7 @@ const ResetPassword = () => {
                         </button> :
                         <button
                             type="submit"
-                            onClick={handleLogin}
+                            onClick={resetPassword}
                             className="flex justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
                             Reset

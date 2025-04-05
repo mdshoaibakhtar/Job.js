@@ -18,7 +18,8 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
             email: '',
             phone_number: '',
             website: '',
-            is_organization: tab == 'employee' ? false : true
+            is_organization: tab == 'employee' ? false : true,
+            is_verified : false
         });
     }
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
