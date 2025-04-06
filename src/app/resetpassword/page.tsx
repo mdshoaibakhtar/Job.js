@@ -19,6 +19,7 @@ const ResetPassword = () => {
         if (passwords['password'] != passwords['confirm_password']) {
             console.log(passwords['password'] != passwords['confirm_password']);
             toast.warning('Password & confirm password should be same.')
+            return
         }
         setLoader(true);
         const email = sessionStorage.getItem('unverified_email')
