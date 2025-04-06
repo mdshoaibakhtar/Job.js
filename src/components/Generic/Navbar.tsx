@@ -82,7 +82,7 @@ export default function Navbar() {
     const router = useRouter();
 
     const handleLogout = () => {
-        clearCookie('useremail')
+        clearCookie('user')
         router.push('/login');
     };
     const handleClose = () => {

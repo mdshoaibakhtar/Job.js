@@ -8,28 +8,46 @@ import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
 import AlertPopUp from '@/components/Generic/AlertPopUp';
 import Toast from '@/components/Generic/Toast';
-import { toast, Slide } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { post } from '@/webservices/webservices';
 
 const Login = () => {
     const { setUserLoggedInDetails } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const [isVisible, setIsVisible] = useState(true)
     const router = useRouter();
+    const { setLoader } = useMyContext();
+    const [loginData, setLoginData] = useState({
+        email: '',
+        password: '',
+    });
 
     const handleLogin = () => {
-        // setIsVisible(true)
-        toast.error("Invalid email or password")
-        // setTimeout(() => {
-        //     setIsVisible(false)
-        // }, 1000);
-        // setAuthenticating(true);
-        // setUserLoggedInDetails({
-        //     loggedIn: true,
-        //     email: 'imdshoaibakhatr@gmail.com'
-        // })
-        // setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
-        // router.push('/');
+        setLoader(true);
+        post('/authenticateuser', {
+            email: loginData['email'],
+            password: loginData['password']
+        }).then((response) => {
+            setLoader(false);
+            // console.log('response', response);
+            if (response.status_code == 401 || response.status_code == 500) {
+                toast.error(response.message)
+                return
+            }
+            setCookie('user', response.token, 10);
+            router.push('/');
+        }).catch((err) => {
+            setLoader(false);
+            toast.error(err)
+        })
     };
+    const handleOnChange = (e: any) => {
+        e.preventDefault();
+        setLoginData((data) => ({
+            ...data,
+            [e.target.name]: e.target.value
+        }))
+    }
 
     return (
         <>
@@ -61,6 +79,7 @@ const Login = () => {
                         name="email"
                         type="text"
                         className={styles.input}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </div>
                 <div className="relative rounded-md shadow-sm mt-4 w-full px-2">
@@ -80,6 +99,7 @@ const Login = () => {
                         name="password"
                         type="password"
                         className={styles.input}
+                        onChange={(e) => handleOnChange(e)}
                     />
                 </div>
 
