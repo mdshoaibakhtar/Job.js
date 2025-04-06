@@ -12,7 +12,7 @@ import Modal from '../Generic/Modal'
 import LoginComponent from './LoginComponent';
 
 export default function Jobcard() {
-  const { setActiveJob, setLoadSkeleton, setShowToast, userLoggedInDetails } = useMyContext();
+  const { setActiveJob, setLoadSkeleton, setShowToast, activeUser } = useMyContext();
   const [apply, setApply] = useState('');
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Jobcard() {
   }, [apply])
 
   const handleJobApply = (job_id: string) => {
-    if (userLoggedInDetails && userLoggedInDetails['loggedIn']) {
+    if (activeUser && activeUser['isLoggedIn']) {
       setApply(job_id)
       return
     }

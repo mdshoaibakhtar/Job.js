@@ -11,14 +11,13 @@ export function clearCookie(name:string) {
 
 export function getCookie(name: string) {
     let cookies: string[] = []
-    // console.log(document.cookie.length)
-    // if (document !== undefined && document !== null && document.cookie.length !== 0) {
-    //     // cookies = document.cookie.split(';');
-    // }
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
+    if (document !== undefined && document !== null && document.cookie.length !== 0) {
+        cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith(name + '=')) {
+                return cookie.substring(name.length + 1);
+            }
         }
     }
     return null;

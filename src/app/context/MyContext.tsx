@@ -11,12 +11,12 @@ interface MyContextType {
     setActiveJob: React.Dispatch<React.SetStateAction<string>>;
     loadSkeleton: string;
     setLoadSkeleton: React.Dispatch<React.SetStateAction<string>>;
-    userLoggedInDetails: {
-        loggedIn: boolean,
+    activeUser: {
+        isLoggedIn: boolean,
         email:string
     };
-    setUserLoggedInDetails: React.Dispatch<React.SetStateAction<{
-    loggedIn: boolean,
+    setActiveUser: React.Dispatch<React.SetStateAction<{
+    isLoggedIn: boolean,
     email:string
 }>>;
     showToast: boolean;
@@ -30,16 +30,16 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 
 // Create a provider component
 export function MyProvider({ children }: { children: ReactNode }) {
-    // console.log('First', getCookie('username'))
+    const active_user = getCookie('user');
     const [state, setState] = useState(false);
     const [loader, setLoader] = useState(false);
     const [showToast, setShowToast] = useState(false);
     const [alert, setAlert] = useState(false);
     const [activeJob, setActiveJob] = useState('iu3ju0hdiz');
     const [loadSkeleton, setLoadSkeleton] = useState('all');
-    const [userLoggedInDetails, setUserLoggedInDetails] = useState({
-        loggedIn: true != null ? true : false,
-        email: ''
+    const [activeUser, setActiveUser] = useState({
+        isLoggedIn: active_user ? true : false,
+        email: active_user ? 'azaan' : ''
     });
 
     return (
@@ -52,8 +52,8 @@ export function MyProvider({ children }: { children: ReactNode }) {
             setLoadSkeleton, 
             loader, 
             setLoader, 
-            userLoggedInDetails, 
-            setUserLoggedInDetails,
+            activeUser, 
+            setActiveUser,
             showToast,
             setShowToast,
             alert,

@@ -12,7 +12,7 @@ import { post } from '@/webservices/webservices';
 import { toast } from 'react-toastify';
 
 const VerifyEmail = () => {
-    const { setUserLoggedInDetails } = useMyContext();
+    const { setActiveUser } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
     const [otp, setOtp] = React.useState(0);

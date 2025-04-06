@@ -78,7 +78,7 @@ const callsToAction = [
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [isOpenSideDrawer, setIsOpenSideDrawer] = useState(false)
-    const { userLoggedInDetails } = useMyContext();
+    const { activeUser } = useMyContext();
     const router = useRouter();
 
     const handleLogout = () => {
@@ -158,7 +158,7 @@ export default function Navbar() {
                         Hackathons
                     </Link>
                 </PopoverGroup>
-                {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ?
+                {!(activeUser && activeUser['isLoggedIn']) ?
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <button onClick={() => console.log('Login page')} className="text-sm font-semibold leading-6 text-gray-900">
                             <Link href='/login' className='text-sm'>Log in</Link> <span aria-hidden="true">&rarr;</span>
@@ -306,7 +306,7 @@ export default function Navbar() {
                                     Hackathons
                                 </Link>
                             </div>
-                            {!(userLoggedInDetails && userLoggedInDetails['loggedIn']) ? <div className="py-6">
+                            {!(activeUser && activeUser['isLoggedIn']) ? <div className="py-6">
                                 <Link
                                     href="/login"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"

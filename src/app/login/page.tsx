@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 import { post } from '@/webservices/webservices';
 
 const Login = () => {
-    const { setUserLoggedInDetails } = useMyContext();
+    const { setActiveUser } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const [isVisible, setIsVisible] = useState(true)
     const router = useRouter();
@@ -29,13 +29,12 @@ const Login = () => {
             password: loginData['password']
         }).then((response) => {
             setLoader(false);
-            // console.log('response', response);
             if (response.status_code == 401 || response.status_code == 500) {
                 toast.error(response.message)
                 return
             }
+            window.location.href = '/';
             setCookie('user', response.token, 10);
-            router.push('/');
         }).catch((err) => {
             setLoader(false);
             toast.error(err)
@@ -51,14 +50,6 @@ const Login = () => {
 
     return (
         <>
-            {/* <Toast/> */}
-            {/* <AlertPopUp
-            title = {"Something went wrong"}
-            description = {"Invalid email or password. please verify before enter"}
-            isVisible={isVisible}
-            setIsVisible={setIsVisible}
-            alertColor="danger"
-            /> */}
             <div className="w-full flex justify-center flex-col items-center h-[100vh] m-auto">
             <div className={`w-full sm:w-5/12 md: w-11/12 lg: w-11/12 flex justify-center flex-col items-center p-4`}>
                 <div className="relative rounded-md shadow-sm mt-2 w-full px-2">

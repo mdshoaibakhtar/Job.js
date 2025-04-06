@@ -7,15 +7,15 @@ import React, { useState } from 'react';
 import { setCookie } from '../../utils/CookiesManagement'
 
 const ForgotPassword = () => {
-    const { setUserLoggedInDetails } = useMyContext();
+    const { setActiveUser } = useMyContext();
     const [authenticating, setAuthenticating] = useState(false);
     const router = useRouter();
 
     const handleLogin = () => {
         console.log('Calling')
         // setAuthenticating(true);
-        // setUserLoggedInDetails({
-        //     loggedIn: true,
+        // setActiveUser({
+        //     isLoggedIn: true,
         //     email: 'imdshoaibakhatr@gmail.com'
         // })
         // setCookie('useremail', 'imdshoaibakhatr@gmail.com', 10)
