@@ -669,5 +669,9 @@ export const employementTypeOptions = [
     {
         key: 'internship',
         label: "Internship"
+    },
+    {
+        key: 'contractual',
+        label: "Contractual"
     }
 ]
