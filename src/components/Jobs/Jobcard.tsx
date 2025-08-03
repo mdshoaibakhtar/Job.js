@@ -5,33 +5,19 @@ import {
   MapPinIcon,
   ClockIcon,
 } from '@heroicons/react/20/solid'
-import { company_mock_data } from '../../mockdata/MockData'
 import { useMyContext } from '@/app/context/MyContext';
 import { useEffect, useState } from 'react';
 import Modal from '../Generic/Modal'
 import LoginComponent from './LoginComponent';
-import { get } from '@/webservices/webservices';
-import { api_url } from '@/variables/constant';
 import moment from 'moment'
+import { JobCardInterface } from '@/interfaces/JobPageIntercaes';
 
-export default function Jobcard() {
+
+export default function Jobcard({ jobList, fetchJobDetails }: JobCardInterface) {
   const { setActiveJob, setLoadSkeleton, setShowToast, activeUser } = useMyContext();
   const [apply, setApply] = useState('');
   const [open, setOpen] = useState(false);
-  const [jobList, setJobList] = useState([]);
-  const fetchJob = () => {
-    get('/fetch-job-api').then(response => {
-      if (response.status_code == 200) {
-        setJobList(response.data)
-      }
-    }).catch(err => {
-      console.log(err)
-    })
-  }
-  useEffect(() => {
-    // console.log(api_url + '/fetch-job-api')
-    fetchJob()
-  }, [])
+
   useEffect(() => {
     setTimeout(() => {
       if (apply !== '') {
@@ -51,7 +37,7 @@ export default function Jobcard() {
     return
 
   }
-  console.log(jobList)
+  // console.log(jobList)
   return (
     <div>
       {
@@ -59,7 +45,7 @@ export default function Jobcard() {
           return (
             <div key={index} className="lg:flex flex-col lg:items-center lg:justify-between mb-4 border-2 rounded border-solid border-slate-50 px-8 py-6 cursor-pointer transform transition shadow-md duration-7000 hover:rounded hover:border-slate-200">
               <div className="lg:flex w-full lg:justify-between">
-                <div className="flex w-full" onClick={() => { setActiveJob(each_company._id), setLoadSkeleton('details') }}>
+                <div className="flex w-full" onClick={() => { fetchJobDetails(each_company._id)}}>
                   <img className="inline-block h-10 w-10 rounded ring-2 ring-white" src={each_company.organisationLogo} alt="" />
                   <div className="flex flex-col ml-3">
                     <h2 className="text-lg font-semibold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
@@ -98,7 +84,7 @@ export default function Jobcard() {
                   </span>
                 </div>
               </div>
-              <div onClick={() => { setActiveJob(each_company._id), setLoadSkeleton('details') }} className="w-full justify-between">
+              <div onClick={() => { fetchJobDetails(each_company._id) }} className="w-full justify-between">
                 <div className='flex sm:block md:block lg:hidden xl:hidden'>
                   <div className="mt-2 flex flex-col sm:mt-2 sm:flex-row sm:flex-wrap sm:space-x-6 w-full justify-between">
                     <div className="mt-2 flex items-center text-sm text-gray-500">
