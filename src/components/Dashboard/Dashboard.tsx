@@ -73,7 +73,7 @@ export default function Dashboard() {
                                     alt="Product screenshot"
                                     src={img}
                                     width={2432}
-                                    height={1442}
+                                    height={1600}
                                     className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] lg:-ml-0"
                                 />
                                 <div className="absolute rounded-xl inset-0 bg-black bg-opacity-0 transition duration-500 min-w-full group-hover:bg-opacity-30" />
