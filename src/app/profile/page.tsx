@@ -4,21 +4,49 @@ import EditableForm from '@/components/Profile/EditableForm'
 import Navbar from '@/components/Generic/Navbar'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 import { Button } from '@heroui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Tooltip } from "@heroui/react";
 import { formJson } from '@/utils/Constant';
 import JobDetailsDynamicField from '../../components/Jobs/JobDetailsDynamicField';
 import ProjectDynamicField from '@/components/Profile/ProjectDynamicField.tsx';
 import EducationDetailsDynamicField from '@/components/Profile/EducationDetailsDynamicField.tsx';
 import GenerateField from './GenerateField';
+import { get } from '@/webservices/webservices';
+import { toast } from 'react-toastify';
+import DynamicLists from '@/components/Profile/DynamicLists';
 
 export default function Profile() {
   const [openModal, setOpenModal] = useState(false);
   const [content, setContent] = useState([])
   const [resumeFileName, setResumeFileName] = useState('')
   const [modalTitle, setModalTitle] = useState('Edit personal information')
+  const [showSkeleton, setShowSkeleton] = useState(true);
+  const [userDetails, setUserDetails] = useState({
+    about: "",
+    current_address: "",
+    current_ctc: "",
+    date_of_birth: "",
+    education_id: "",
+    email: "",
+    employment_type: [],
+    expected_ctc: "",
+    experience_id: "",
+    first_name: "",
+    last_name: "",
+    notice_period: "",
+    permanent_address: "",
+    phone_number: "",
+    preferred_location: [],
+    preferred_role: [],
+    project_id: "",
+    resume_drive_link: "",
+    skills: [],
+    total_experience: "",
+    user_id: "",
+    work_mode: []
+  })
 
-  const openBackdropModal = (type:string) => {
+  const openBackdropModal = (type: string) => {
     const arr: any = [];
     if (type === 'personal') {
       formJson.map((attribute, index) => {
@@ -32,9 +60,9 @@ export default function Profile() {
           />)
         )
       })
-    } else if (type =='career') {
+    } else if (type == 'career') {
       setModalTitle('Edit your work experience')
-      arr.push(<JobDetailsDynamicField key={0}/>)
+      arr.push(<JobDetailsDynamicField key={0} />)
     } else if (type == 'projects') {
       setModalTitle('Edit your projects')
       arr.push(<ProjectDynamicField key={0} />)
@@ -59,6 +87,25 @@ export default function Profile() {
       Save changes
     </Button>
   </div>
+  const fetchUserDetails = () => {
+    setShowSkeleton(true)
+    get('/fetch-user-details?user_id=1').then((response) => {
+      if (response.status_code == 401 || response.status_code == 500) {
+        toast.error(response.message)
+        return
+      } else {
+        console.log(response.data);
+        setUserDetails(response.data);
+        setShowSkeleton(false)
+      }
+    }).catch((err) => {
+      toast.error(err)
+    })
+  }
+  useEffect(() => {
+    fetchUserDetails()
+  }, [])
+  // console.log(userDetails);
   return (
     <>
       <Navbar />
@@ -83,45 +130,52 @@ export default function Profile() {
           <dl className="divide-y divide-gray-100">
             <EditableForm
               title="Full name"
-              defaultValue="Md Shoaib Akhtar"
+              defaultValue={userDetails['first_name'] + ' ' + userDetails['last_name']}
               resize={false}
               rows={1}
+              showSkeleton={showSkeleton}
             />
             <EditableForm
               title="Email address"
-              defaultValue="mdshoaibakhtar966@gmail.com"
+              defaultValue={userDetails['email']}
               resize={false}
               rows={1}
+              showSkeleton={showSkeleton}
             />
             <EditableForm
               title="Date of birth"
-              defaultValue="08 Feb 2002"
+              defaultValue={userDetails['date_of_birth']}
               resize={false}
               rows={1}
+              showSkeleton={showSkeleton}
             />
             <EditableForm
               title="Contact number"
-              defaultValue="+91 990510XXXX"
+              defaultValue={userDetails['phone_number']}
               resize={false}
               rows={1}
+              showSkeleton={showSkeleton}
             />
             <EditableForm
               title="Permanent address"
-              defaultValue="Bhagalpur, Bihar"
+              defaultValue={userDetails['permanent_address']}
               resize={false}
               rows={1}
+              showSkeleton={showSkeleton}
             />
             <EditableForm
               title="Current address"
-              defaultValue="Elite tower, Sector V, Kolkata - 710009"
+              defaultValue={userDetails['current_address']}
               resize={false}
               rows={1}
+              showSkeleton={showSkeleton}
             />
             <EditableForm
               title="About"
-              defaultValue="Hi I'm Md Shoaib Akhtar ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu. Hi I'm Md Shoaib Akhtar ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu."
+              defaultValue={userDetails['about']}
               resize={true}
               rows={8}
+              showSkeleton={showSkeleton}
             />
           </dl>
         </div>
@@ -130,53 +184,38 @@ export default function Profile() {
         </div>
         <div className="mt-6">
           <dl className="divide-y divide-gray-100">
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Current location</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Kolkata, West bengal</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Years of experience</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">2 Years 1 Month</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Current salary</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Rs X,XX,XXX</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Notice period</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">X days (Negotiable)</dd>
-            </div>
+            <EditableForm
+              title="Total experience"
+              defaultValue={userDetails['total_experience']}
+              resize={true}
+              rows={8}
+              showSkeleton={showSkeleton}
+            />
+            <EditableForm
+              title="Current CTC"
+              defaultValue={userDetails['current_ctc']}
+              resize={true}
+              rows={8}
+              showSkeleton={showSkeleton}
+            />
+            <EditableForm
+              title="Expected CTC"
+              defaultValue={userDetails['expected_ctc']}
+              resize={true}
+              rows={8}
+              showSkeleton={showSkeleton}
+            />
+            <EditableForm
+              title="Notice period"
+              defaultValue={userDetails['notice_period']}
+              resize={true}
+              rows={8}
+              showSkeleton={showSkeleton}
+            />
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">Skills</dt>
               <div className='flex flex-col sm:flex-row'>
-                <div className='flex'>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    Javascript
-                  </dd>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    Reactjs
-                  </dd>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    Nextjs
-                  </dd>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    AWS
-                  </dd>
-                </div>
-                <div className='flex mt-2 sm:mt-0'>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    Java
-                  </dd>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    Python
-                  </dd>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    SQL
-                  </dd>
-                  <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                    Tailwind
-                  </dd>
-                </div>
+                <DynamicLists skills={userDetails['skills']} />
               </div>
             </div>
           </dl>
@@ -187,60 +226,20 @@ export default function Profile() {
         <div className="mt-6">
           <dl className="divide-y divide-gray-100">
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt className="text-sm font-medium leading-6 text-gray-900">Employment type</dt>
+              <DynamicLists skills={userDetails['employment_type']} />
+            </div>
+            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">Preferred location</dt>
-              <div className='flex'>
-
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Kolkata
-                </dd>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Hyderabd
-                </dd>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Pune
-                </dd>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Chennai
-                </dd>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Noida
-                </dd>
-              </div>
-              {/* <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">, Chennai, Noida, Bengalore, Pune & Hyderabad</dd> */}
+              <DynamicLists skills={userDetails['preferred_location']} />
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">Preferred role</dt>
-              <div className='flex max-w-full'>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Fullstack developer
-                </dd>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Frontend developer
-                </dd>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 border border-gray-300 rounded mr-4 px-2 py-1">
-                  Backend developer
-                </dd>
-              </div>
+              <DynamicLists skills={userDetails['preferred_role']} />
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Preferred salary</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Rs XX,XX,XXX</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Preferred shift</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Flexible</dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Job type</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                Permanent
-              </dd>
-            </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">Employment type</dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                Full time
-              </dd>
+              <dt className="text-sm font-medium leading-6 text-gray-900">Work mode</dt>
+              <DynamicLists skills={userDetails['work_mode']} />
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">Resume</dt>
@@ -255,9 +254,9 @@ export default function Profile() {
                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
                         <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                       </div>
-                      <input id="dropzone-file" type="file" className="hidden" onChange={(e) => handleFileUpload(e)}/>
+                      <input id="dropzone-file" type="file" className="hidden" onChange={(e) => handleFileUpload(e)} />
                     </label>
-                  </div> 
+                  </div>
 
                   {resumeFileName.length > 0 && <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                     <div className="flex w-0 flex-1 items-center">
