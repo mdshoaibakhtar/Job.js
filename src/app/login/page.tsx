@@ -34,7 +34,7 @@ const Login = () => {
                 return
             }
             window.location.href = '/';
-            setCookie('user', response.token, 10);
+            setCookie('active_user', response.token, 10);
         }).catch((err) => {
             setLoader(false);
             toast.error(err)

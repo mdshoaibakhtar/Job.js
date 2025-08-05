@@ -40,7 +40,7 @@ export function MyProvider({ children }: { children: ReactNode }) {
     });
 
     useEffect(() => {
-        const active_user = getCookie('user');
+        const active_user = getCookie('active_user');
         if (active_user) {
             setActiveUser({
                 isLoggedIn: true,
