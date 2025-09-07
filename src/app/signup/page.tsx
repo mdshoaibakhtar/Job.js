@@ -2,12 +2,12 @@
 'use client'
 import { useState } from 'react';
 import styles from '../Custom.module.css';
-import Link from 'next/link'     
+import Link from 'next/link'
 import { useRouter } from 'next/navigation';
-import SignupTab from './SignupTab';                   
+import SignupTab from './SignupTab';
 import BackDropModal from '../../components/Generic/BackDropModal';
-import { Button } from '@heroui/react';                                             
-import { FormDataType } from '@/interfaces/OnBoardingInterfaces';                                   
+import { Button } from '@heroui/react';
+import { FormDataType } from '@/interfaces/OnBoardingInterfaces';
 import { useMyContext } from '../context/MyContext';
 import { post } from '@/webservices/webservices';
 import { toast } from 'react-toastify';
@@ -18,6 +18,7 @@ export default function SignUp() {
     const { setLoader } = useMyContext();
     const [openModal, setOpenModal] = useState(false);
     const router = useRouter();
+    const [consent, setConsent] = useState(false);
     const [formData, setFormData] = useState<FormDataType>({
         first_name: '',
         last_name: '',
@@ -41,13 +42,17 @@ export default function SignUp() {
             router.push('/verifyemail');
         }).catch((err) => {
             setLoader(false);
-        }) 
+        })
     };
     const handleOpen = () => {
         setOpenModal(true);
     };
     const handleClose = () => {
         setOpenModal(false);
+    }
+    const handleAgree = () => {
+        setConsent(!consent);
+        handleClose();
     }
     const content = <div>
         <p>
@@ -72,8 +77,8 @@ export default function SignUp() {
         <Button color="danger" variant="light" onPress={handleClose}>
             Close
         </Button>
-        <Button color="primary" onPress={handleClose}>
-            Agree
+        <Button color="primary" onPress={handleAgree}>
+            {consent ? 'Disagree' : 'Agree'}
         </Button>
     </div>
     return (
@@ -90,7 +95,13 @@ export default function SignUp() {
                     size="md"
                 />
                 <div className="w-8/12 flex items-center w-full">
-                    <input id="default-checkbox" type="checkbox" value="" className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                    <input
+                        id="default-checkbox"
+                        type="checkbox"
+                        onChange={() => setConsent(!consent)}
+                        checked={consent}
+                        className="cursor-pointer w-4 h-4 text-[#BB2649] bg-gray-100 border-gray-300 rounded focus:ring-[#BB2649] dark:focus:ring-[#BB2649] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
                     <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <button onClick={handleOpen} className="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</button>.</label>
                 </div>
 
@@ -106,6 +117,8 @@ export default function SignUp() {
                         </button> :
                         <button
                             type="submit"
+                            disabled={!consent}
+                            style={{ backgroundColor: consent ? '#BB2649' : 'gray', cursor: consent ? 'pointer' : 'not-allowed' }}
                             onClick={handleCreateAccount}
                             className="flex justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
