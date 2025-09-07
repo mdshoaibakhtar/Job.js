@@ -11,6 +11,8 @@ import { FormDataType } from '@/interfaces/OnBoardingInterfaces';
 import { useMyContext } from '../context/MyContext';
 import { post } from '@/webservices/webservices';
 import { toast } from 'react-toastify';
+import { content } from '@/utils/Constant';
+import HTMLReactParser from 'html-react-parser/lib/index';
 
 
 export default function SignUp() {
@@ -55,25 +57,6 @@ export default function SignUp() {
         setConsent(!consent);
         handleClose();
     }
-    const content = <div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-            risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-            quam.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-            risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-            quam.
-        </p>
-        <p>
-            Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-            adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-            officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-            nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
-            deserunt nostrud ad veniam.
-        </p>
-    </div>
     const footer = <div>
         <Button color="danger" variant="light" onPress={handleClose}>
             Close
@@ -91,7 +74,7 @@ export default function SignUp() {
                     openModal={openModal}
                     handleClose={handleClose}
                     title="Terms & Conditions"
-                    content={content}
+                    content={HTMLReactParser(content)}
                     footer={footer}
                     size="md"
                 />
