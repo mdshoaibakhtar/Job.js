@@ -6,11 +6,12 @@ import { FormDataType } from "@/interfaces/OnBoardingInterfaces";
 
 interface SignupTabProps {
     setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
+    authenticating: boolean;
 }
 
-export default function SignupTab({ setFormData }: SignupTabProps) {
+export default function SignupTab({ setFormData, authenticating }: SignupTabProps) {
     const [selectedTab, setSelectedTab] = useState("employee");
-    const tabChange = (tab:any) => {
+    const tabChange = (tab: any) => {
         setSelectedTab(tab.toLocaleString());
         setFormData({
             first_name: '',
@@ -19,7 +20,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
             phone_number: '',
             website: '',
             is_organization: tab == 'employee' ? false : true,
-            is_verified : false
+            is_verified: false
         });
     }
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +34,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
         <div className="flex w-full flex-col">
             <Tabs aria-label="Options" className="w-full block" selectedKey={selectedTab} onSelectionChange={(tab) => tabChange(tab)}>
                 <Tab key="employee" title="Individual/Employee">
-                    <div className="relative rounded-md shadow-sm w-full ">
+                                        <div className="relative rounded-md shadow-sm w-full ">
                         <label htmlFor="first_name" className="block text-sm font-medium leading-6 text-gray-900">
                             First name
                         </label>
@@ -48,6 +49,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="first_name"
                             name="first_name"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -67,6 +69,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="last_name"
                             name="last_name"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -86,6 +89,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="email"
                             name="email"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -105,6 +109,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="phone_number"
                             name="phone_number"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -126,6 +131,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="first_name"
                             name="first_name"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -145,6 +151,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="email"
                             name="email"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -164,6 +171,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="phone_number"
                             name="phone_number"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />
@@ -183,6 +191,7 @@ export default function SignupTab({ setFormData }: SignupTabProps) {
                             id="website"
                             name="website"
                             type="text"
+                            disabled={authenticating}
                             className={styles.input}
                             onChange={(e) => onChange(e)}
                         />

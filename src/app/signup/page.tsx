@@ -30,7 +30,7 @@ export default function SignUp() {
     })
 
     const handleCreateAccount = () => {
-        setLoader(true);
+        setAuthenticating(true);
         post('/createuser', formData).then((response) => {
             setLoader(false);
             if (response.status_code == 400) {
@@ -41,6 +41,7 @@ export default function SignUp() {
             sessionStorage.setItem('unverified_email', formData.email)
             router.push('/verifyemail');
         }).catch((err) => {
+            setAuthenticating(false);
             setLoader(false);
         })
     };
@@ -85,7 +86,7 @@ export default function SignUp() {
         <div className="w-full flex justify-center flex-col items-center h-[100vh]">
             <div className="flex justify-center flex-col items-center md:p-4 sm:w-5/12 md: w-11/12 lg: w-11/12">
                 <h3 className='mb-2 antialiased font-bold'>Create new account</h3>
-                <SignupTab setFormData={setFormData} />
+                <SignupTab setFormData={setFormData} authenticating={authenticating}/>
                 <BackDropModal
                     openModal={openModal}
                     handleClose={handleClose}
@@ -112,13 +113,13 @@ export default function SignUp() {
                             disabled
                             className="flex cursor-wait justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
-                            Creating your account
+                            Please wait, We're creating your account
                             <span className={styles.authenticating_loader} aria-hidden="true" />
                         </button> :
                         <button
                             type="submit"
                             disabled={!consent}
-                            style={{ backgroundColor: consent ? '#BB2649' : 'gray', cursor: consent ? 'pointer' : 'not-allowed' }}
+                            style={{ backgroundColor: consent ? '#BB2649' : 'rgb(173 97 115)', cursor: consent ? 'pointer' : 'not-allowed' }}
                             onClick={handleCreateAccount}
                             className="flex justify-center items-center w-full rounded-md bg-[#BB2649] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#BB2649] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-820"
                         >
